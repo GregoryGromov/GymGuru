@@ -51,9 +51,12 @@
 		5F9E26012C5119AB008F0CD3 /* GymGuru */ = {
 			isa = PBXGroup;
 			children = (
-				5F9E26022C5119AB008F0CD3 /* GymGuruApp.swift */,
-				5F9E26042C5119AB008F0CD3 /* ContentView.swift */,
-				5F9E26062C5119AC008F0CD3 /* Assets.xcassets */,
+				5F9E26162C511A89008F0CD3 /* App */,
+				5F9E261A2C511AA6008F0CD3 /* Servicses */,
+				5F9E26172C511A8C008F0CD3 /* Models */,
+				5F9E26182C511A93008F0CD3 /* Core */,
+				5F9E26192C511AA0008F0CD3 /* Protocols */,
+				5F9E261B2C511AB2008F0CD3 /* Resources */,
 				5F9E26082C5119AC008F0CD3 /* Preview Content */,
 			);
 			path = GymGuru;
@@ -65,6 +68,51 @@
 				5F9E26092C5119AC008F0CD3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5F9E26162C511A89008F0CD3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5F9E26042C5119AB008F0CD3 /* ContentView.swift */,
+				5F9E26022C5119AB008F0CD3 /* GymGuruApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5F9E26172C511A8C008F0CD3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5F9E26182C511A93008F0CD3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5F9E26192C511AA0008F0CD3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5F9E261A2C511AA6008F0CD3 /* Servicses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Servicses;
+			sourceTree = "<group>";
+		};
+		5F9E261B2C511AB2008F0CD3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F9E26062C5119AC008F0CD3 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
