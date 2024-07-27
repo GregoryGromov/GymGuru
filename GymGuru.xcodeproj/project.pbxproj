@@ -7,18 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F7BCE672C558BA7006B1E16 /* TrainingGeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE662C558BA7006B1E16 /* TrainingGeneralViewModel.swift */; };
+		5F7BCE6D2C558EC9006B1E16 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE6C2C558EC9006B1E16 /* AddExerciseView.swift */; };
+		5F7BCE6F2C558F19006B1E16 /* AddExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE6E2C558F19006B1E16 /* AddExerciseViewModel.swift */; };
 		5F9E26032C5119AB008F0CD3 /* GymGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E26022C5119AB008F0CD3 /* GymGuruApp.swift */; };
 		5F9E26052C5119AB008F0CD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E26042C5119AB008F0CD3 /* ContentView.swift */; };
 		5F9E26072C5119AC008F0CD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E26062C5119AC008F0CD3 /* Assets.xcassets */; };
 		5F9E260A2C5119AC008F0CD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E26092C5119AC008F0CD3 /* Preview Assets.xcassets */; };
+		5F9E261D2C511BE8008F0CD3 /* ESet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E261C2C511BE8008F0CD3 /* ESet.swift */; };
+		5F9E261F2C511C7D008F0CD3 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E261E2C511C7D008F0CD3 /* Exercise.swift */; };
+		5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE02C5148EA00AA1119 /* Training.swift */; };
+		5FFDFFE32C51499200AA1119 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE22C51499200AA1119 /* DataManager.swift */; };
+		5FFDFFE72C514C8900AA1119 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE62C514C8900AA1119 /* MainView.swift */; };
+		5FFDFFEF2C51545B00AA1119 /* TrainingRouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFEE2C51545B00AA1119 /* TrainingRouterView.swift */; };
+		5FFDFFF12C51567300AA1119 /* TrainingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFF02C51567300AA1119 /* TrainingManager.swift */; };
+		5FFDFFFC2C515B0600AA1119 /* TrainingGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFFB2C515B0600AA1119 /* TrainingGeneralView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F7BCE662C558BA7006B1E16 /* TrainingGeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingGeneralViewModel.swift; sourceTree = "<group>"; };
+		5F7BCE6C2C558EC9006B1E16 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
+		5F7BCE6E2C558F19006B1E16 /* AddExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModel.swift; sourceTree = "<group>"; };
 		5F9E25FF2C5119AB008F0CD3 /* GymGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9E26022C5119AB008F0CD3 /* GymGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymGuruApp.swift; sourceTree = "<group>"; };
 		5F9E26042C5119AB008F0CD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F9E26062C5119AC008F0CD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F9E26092C5119AC008F0CD3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5F9E261C2C511BE8008F0CD3 /* ESet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESet.swift; sourceTree = "<group>"; };
+		5F9E261E2C511C7D008F0CD3 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		5FFDFFE02C5148EA00AA1119 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		5FFDFFE22C51499200AA1119 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		5FFDFFE62C514C8900AA1119 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5FFDFFEE2C51545B00AA1119 /* TrainingRouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingRouterView.swift; sourceTree = "<group>"; };
+		5FFDFFF02C51567300AA1119 /* TrainingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingManager.swift; sourceTree = "<group>"; };
+		5FFDFFFB2C515B0600AA1119 /* TrainingGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingGeneralView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +54,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F7BCE682C558E64006B1E16 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				5FFDFFF62C51598700AA1119 /* ViewModel */,
+				5FFDFFF52C51598300AA1119 /* View */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		5F7BCE692C558E76006B1E16 /* AddExercise */ = {
+			isa = PBXGroup;
+			children = (
+				5F7BCE6B2C558EA3006B1E16 /* ViewModel */,
+				5F7BCE6A2C558E9E006B1E16 /* View */,
+			);
+			path = AddExercise;
+			sourceTree = "<group>";
+		};
+		5F7BCE6A2C558E9E006B1E16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F7BCE6C2C558EC9006B1E16 /* AddExerciseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F7BCE6B2C558EA3006B1E16 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F7BCE6E2C558F19006B1E16 /* AddExerciseViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5F9E25F62C5119AB008F0CD3 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +138,9 @@
 		5F9E26172C511A8C008F0CD3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5F9E261C2C511BE8008F0CD3 /* ESet.swift */,
+				5F9E261E2C511C7D008F0CD3 /* Exercise.swift */,
+				5FFDFFE02C5148EA00AA1119 /* Training.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -89,6 +148,9 @@
 		5F9E26182C511A93008F0CD3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5FFDFFE82C514C8C00AA1119 /* Main */,
+				5FFDFFF32C51590300AA1119 /* Training */,
+				5FFDFFF42C51590A00AA1119 /* Statistics */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -103,6 +165,8 @@
 		5F9E261A2C511AA6008F0CD3 /* Servicses */ = {
 			isa = PBXGroup;
 			children = (
+				5FFDFFE22C51499200AA1119 /* DataManager.swift */,
+				5FFDFFF02C51567300AA1119 /* TrainingManager.swift */,
 			);
 			path = Servicses;
 			sourceTree = "<group>";
@@ -113,6 +177,95 @@
 				5F9E26062C5119AC008F0CD3 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5FFDFFE82C514C8C00AA1119 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5FFDFFEA2C514C9600AA1119 /* ViewModel */,
+				5FFDFFE92C514C9200AA1119 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5FFDFFE92C514C9200AA1119 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5FFDFFE62C514C8900AA1119 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5FFDFFEA2C514C9600AA1119 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5FFDFFEB2C5153FE00AA1119 /* TrainingRouter */ = {
+			isa = PBXGroup;
+			children = (
+				5FFDFFED2C51542500AA1119 /* ViewModel */,
+				5FFDFFEC2C51542100AA1119 /* View */,
+			);
+			path = TrainingRouter;
+			sourceTree = "<group>";
+		};
+		5FFDFFEC2C51542100AA1119 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5FFDFFEE2C51545B00AA1119 /* TrainingRouterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5FFDFFED2C51542500AA1119 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5FFDFFF22C5158B800AA1119 /* ProcessTraining */ = {
+			isa = PBXGroup;
+			children = (
+				5F7BCE682C558E64006B1E16 /* General */,
+				5F7BCE692C558E76006B1E16 /* AddExercise */,
+			);
+			path = ProcessTraining;
+			sourceTree = "<group>";
+		};
+		5FFDFFF32C51590300AA1119 /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				5FFDFFEB2C5153FE00AA1119 /* TrainingRouter */,
+				5FFDFFF22C5158B800AA1119 /* ProcessTraining */,
+			);
+			path = Training;
+			sourceTree = "<group>";
+		};
+		5FFDFFF42C51590A00AA1119 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		5FFDFFF52C51598300AA1119 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5FFDFFFB2C515B0600AA1119 /* TrainingGeneralView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5FFDFFF62C51598700AA1119 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F7BCE662C558BA7006B1E16 /* TrainingGeneralViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,7 +339,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F9E26052C5119AB008F0CD3 /* ContentView.swift in Sources */,
+				5FFDFFE72C514C8900AA1119 /* MainView.swift in Sources */,
+				5F7BCE672C558BA7006B1E16 /* TrainingGeneralViewModel.swift in Sources */,
+				5FFDFFE32C51499200AA1119 /* DataManager.swift in Sources */,
+				5F7BCE6D2C558EC9006B1E16 /* AddExerciseView.swift in Sources */,
+				5FFDFFEF2C51545B00AA1119 /* TrainingRouterView.swift in Sources */,
+				5F9E261F2C511C7D008F0CD3 /* Exercise.swift in Sources */,
+				5FFDFFFC2C515B0600AA1119 /* TrainingGeneralView.swift in Sources */,
 				5F9E26032C5119AB008F0CD3 /* GymGuruApp.swift in Sources */,
+				5F9E261D2C511BE8008F0CD3 /* ESet.swift in Sources */,
+				5F7BCE6F2C558F19006B1E16 /* AddExerciseViewModel.swift in Sources */,
+				5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */,
+				5FFDFFF12C51567300AA1119 /* TrainingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
