@@ -14,6 +14,4 @@ class DataManager: ObservableObject {
     func editTraining() {
         
     }
-    
-    
 }
