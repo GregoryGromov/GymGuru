@@ -1,6 +1,6 @@
 import Foundation
 
-class DataManager: ObservableObject {
+final class DataManager: ObservableObject {
     @Published var trainings: [String: Training] = [:]
     
     func addTraining(_ training: Training) {

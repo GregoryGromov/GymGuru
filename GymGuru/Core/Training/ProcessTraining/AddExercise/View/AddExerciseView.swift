@@ -2,11 +2,9 @@ import SwiftUI
 
 struct AddExerciseView: View {
     
-//    let trainingManager: TrainingManager // вообще, можно убрать
     @StateObject var viewModel: AddExerciseViewModel
     
     init(trainingManager: TrainingManager) {
-//        self.trainingManager = trainingManager
         _viewModel = StateObject(wrappedValue: AddExerciseViewModel(trainingManager: trainingManager))
     }
     
@@ -17,10 +15,17 @@ struct AddExerciseView: View {
             TextField("Name", text: $name)
             Button("Add exercise") {
                 let newExercise = Exercise(
+                    id: UUID().uuidString,
+                    date: 128980923098,
                     nameId: name,
                     sets: []
                 )
                 viewModel.addExercise(newExercise)
+            }
+            Spacer()
+            
+            Button("Загрузить доступные типы упражнений") {
+                ExerciseManager.shared.getExercises()
             }
         }
     }

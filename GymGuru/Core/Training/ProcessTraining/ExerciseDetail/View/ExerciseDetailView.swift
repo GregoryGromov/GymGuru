@@ -1,10 +1,3 @@
-//
-//  ExerciseDetailView.swift
-//  GymGuru
-//
-//  Created by Григорий Громов on 28.07.2024.
-//
-
 import SwiftUI
 
 struct ExerciseDetailView: View {
@@ -23,15 +16,69 @@ struct ExerciseDetailView: View {
     var body: some View {
         VStack {
             Text(viewModel.exercise.nameId).font(.title).bold()
+            setsList
             
-            Button("Add set") {
-                viewModel.addSet(weight: 100, reps: 3)
+            setAdding
+            addButton
+            saveButton
+        }
+    }
+    
+    private var setAdding: some View {
+        HStack {
+            TextField("Weight", text: $viewModel.weight)
+                .keyboardType(.numberPad)
+            TextField("Amount", text: $viewModel.reps)
+        }
+    }
+    
+    private var setsList: some View {
+        List {
+            ForEach(viewModel.exercise.sets) { set in
+                setCell(for: set)
             }
-            
-            Button("Save") {
-                viewModel.save()
-                dismiss()
+        }
+    }
+    
+    private func setCell(for set: ESet) -> some View {
+        HStack {
+            Text("\(set.weight) kg").bold()
+            Spacer()
+            Text("x \(set.reps)")
+        }
+        .background(
+            viewModel.selectedSetId == set.id ?
+                .gray :
+                .white
+        )
+        .swipeActions(allowsFullSwipe: true) {
+            Button() {
+                viewModel.deleteSet(byId: set.id)
+            } label: {
+                Label("Delete", systemImage: "trash.fill")
+                    .tint(.red)
             }
+        }
+        .onTapGesture {
+            viewModel.switchSetSelection(byId: set.id)
+        }
+    }
+    
+    private var addButton: some View {
+        Button("Add set") {
+            if let selectedSetId = viewModel.selectedSetId {
+                viewModel.updateSet(byId: selectedSetId, weight: Float(viewModel.weight) ?? 22, reps: Int(viewModel.reps) ?? 8)
+                viewModel.selectedSetId = nil
+            } else {
+                viewModel.addSet(weight: Float(viewModel.weight) ?? 22, reps: Int(viewModel.reps) ?? 8)
+            }
+        }
+    }
+    
+    private var saveButton: some View {
+        Button("Save") {
+            viewModel.save()
+            dismiss()
         }
     }
 }

@@ -2,11 +2,9 @@ import SwiftUI
 
 struct TrainingGeneralView: View {
     
-    let trainingManager: TrainingManager
     @StateObject var viewModel: TrainingGeneralViewModel
     
     init(trainingManager: TrainingManager) {
-        self.trainingManager = trainingManager
         _viewModel = StateObject(wrappedValue: TrainingGeneralViewModel(trainingManager: trainingManager))
     }
     
@@ -16,7 +14,7 @@ struct TrainingGeneralView: View {
             addExerciseButton
         }
         .sheet(isPresented: $viewModel.showAddExerciseView) {
-            AddExerciseView(trainingManager: trainingManager)
+            AddExerciseView(trainingManager: viewModel.trainingManager)
         }
         .sheet(item: $viewModel.selectedExercise) { exercise in
             ExerciseDetailView(trainingManager: viewModel.trainingManager, exercise: exercise)

@@ -1,8 +1,8 @@
 import Foundation
 
-struct Exercise: Identifiable {
-    let id = UUID().uuidString
-    let date = Date()
+struct Exercise: Identifiable, Codable {
+    let id: String
+    let date: Int
     
     let nameId: String
     

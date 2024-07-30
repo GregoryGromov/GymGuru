@@ -1,7 +1,7 @@
 import Foundation
 
-struct ESet: Identifiable {
-    let id = UUID().uuidString
+struct ESet: Identifiable, Codable {
+    var id: String
     
     var weight: Float
     var reps: Int
