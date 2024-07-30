@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F3580872C5908ED001BA25D /* CoreDaraErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3580862C5908ED001BA25D /* CoreDaraErrors.swift */; };
 		5F7BCE672C558BA7006B1E16 /* TrainingGeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE662C558BA7006B1E16 /* TrainingGeneralViewModel.swift */; };
 		5F7BCE6D2C558EC9006B1E16 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE6C2C558EC9006B1E16 /* AddExerciseView.swift */; };
 		5F7BCE6F2C558F19006B1E16 /* AddExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE6E2C558F19006B1E16 /* AddExerciseViewModel.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F3580862C5908ED001BA25D /* CoreDaraErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDaraErrors.swift; sourceTree = "<group>"; };
 		5F7BCE662C558BA7006B1E16 /* TrainingGeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingGeneralViewModel.swift; sourceTree = "<group>"; };
 		5F7BCE6C2C558EC9006B1E16 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		5F7BCE6E2C558F19006B1E16 /* AddExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModel.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				5F9A9C3D2C58261E00C8C413 /* DataStorageErrors.swift */,
+				5F3580862C5908ED001BA25D /* CoreDaraErrors.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				5F9A9C422C5829FF00C8C413 /* ExerciseType.swift in Sources */,
 				5F9A9C3E2C58261E00C8C413 /* DataStorageErrors.swift in Sources */,
 				5F9E261D2C511BE8008F0CD3 /* ESet.swift in Sources */,
+				5F3580872C5908ED001BA25D /* CoreDaraErrors.swift in Sources */,
 				5F7BCE6F2C558F19006B1E16 /* AddExerciseViewModel.swift in Sources */,
 				5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */,
 				5F9A9C492C58F1A400C8C413 /* MainStorage.xcdatamodeld in Sources */,

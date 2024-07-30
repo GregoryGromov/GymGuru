@@ -3,7 +3,7 @@
     <entity name="ExerciseTypeEntity" representedClassName="ExerciseTypeEntity" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="isBodyWeight" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="muscleGroups" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="muscleGroups" optional="YES" attributeType="Transformable"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
 </model>

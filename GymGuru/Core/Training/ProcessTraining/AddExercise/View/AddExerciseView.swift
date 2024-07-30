@@ -24,9 +24,7 @@ struct AddExerciseView: View {
             }
             Spacer()
             
-            Button("Загрузить доступные типы упражнений") {
-                ExerciseManager.shared.getExercises()
-            }
+            
         }
     }
 }
