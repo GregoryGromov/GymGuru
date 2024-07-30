@@ -3,9 +3,8 @@ import Foundation
 class ExerciseManager {
     
     static let shared = ExerciseManager()
-    
-    let dataService = CoreDataService()
-    
+        
+//    TODO: хранить в отдельном файле
     private let builtInExercises = [
         ExerciseType(
             id: UUID().uuidString,
@@ -21,34 +20,60 @@ class ExerciseManager {
         )
     ]
     
-    func getExercises() -> [ExerciseType] {
-        
-//        извлекаем кастомные упражнения (exerciseTypeEntities) из хранилища
-        let exerciseTypeEntities = dataService.fetch(ExerciseTypeEntity.self)
-        
-//        конвертируем в exerciseType
-        
-        
-//        делаем слияние кастомных и не кастомных
-        
-//        возвращаем получившийся результат
-        
-        return []
+    private var documentsDirectory: URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
-    func addExercise(_ exercise: ExerciseType) {
-        
-//        сохраняем тип упражнения в CoreData
-        
+    private var fileURL: URL {
+        return documentsDirectory.appendingPathComponent("exercises.json")
     }
     
-    func updateExercise(_ exercise: ExerciseType) {
-        
+    func saveExercises(_ exercises: [ExerciseType]) throws {
+        do {
+            let data = try JSONEncoder().encode(exercises)
+            try data.write(to: fileURL) 
+        } catch {
+            throw error
+        }
     }
     
-    func deleteExercise(_ exercise: ExerciseType) {
-        
+    func loadExercises() throws -> [ExerciseType] {
+        do {
+            let data = try Data(contentsOf: fileURL) // Чтение данных из файла
+            let exercises = try JSONDecoder().decode([ExerciseType].self, from: data) //
+            print("ЗАГРУЗИЛИ :)")
+            print(exercises)
+            return exercises
+        } catch {
+            throw error
+        }
     }
     
+    func addExercise(_ exerciseType: ExerciseType) throws {
+        var existingExerciseTypes = try loadExercises()
+        existingExerciseTypes.append(exerciseType)
+        try saveExercises(existingExerciseTypes)
+    }
     
+    func updateExercise(_ exerciseType: ExerciseType) throws {
+        var existingExerciseTypes = try loadExercises()
+        for index in existingExerciseTypes.indices {
+            if existingExerciseTypes[index].id == exerciseType.id {
+                existingExerciseTypes[index] = exerciseType
+                break
+            }
+        }
+        try saveExercises(existingExerciseTypes)
+    }
+    
+    func deleteExercise(byId id: String) throws {
+        var existingExerciseTypes = try loadExercises()
+        for index in existingExerciseTypes.indices {
+            if existingExerciseTypes[index].id == id {
+                existingExerciseTypes.remove(at: index)
+                break
+            }
+        }
+        try saveExercises(existingExerciseTypes)
+    }
 }

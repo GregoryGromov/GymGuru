@@ -23,8 +23,6 @@ struct AddExerciseView: View {
                 viewModel.addExercise(newExercise)
             }
             Spacer()
-            
-            
         }
     }
 }
