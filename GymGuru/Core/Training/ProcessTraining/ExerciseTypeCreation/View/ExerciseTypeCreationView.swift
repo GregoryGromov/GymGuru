@@ -1,58 +1,43 @@
 import SwiftUI
 
 struct ExerciseTypeCreationView: View {
-    
     @Environment(\.dismiss) var dismiss
-    
-    @State var name = ""
-    @State var isBodyWeight = false
-    @State var selectedMuscleGroups = [String]()
-    
-    let muscleGroups = ["Грудь", "Спина", "Руки", "Плечи"]
-    
+    @StateObject var viewModel = ExerciseTypeCreationViewModel()
+   
     var body: some View {
         VStack {
             List {
                 Section("Общие данные") {
-                    TextField("Введите название", text: $name)
-                    Toggle(isOn: $isBodyWeight) {
-                        Text("С собственным весом?")
+                    TextField("Введите название", text: $viewModel.name)
+                    Toggle(isOn: $viewModel.isBodyWeight) {
+                        Text("С собственным весом")
                     }
-                    
                 }
                 
                 Section("Выберите группы мышц") {
-                    ForEach(muscleGroups, id: \.self) { muscleGroup in
+                    ForEach(viewModel.muscleGroups, id: \.self) { muscleGroup in
                         HStack {
                             Text(muscleGroup)
                             Spacer()
                         }
                         .background (
-                            selectedMuscleGroups.contains(muscleGroup) ?
+                            viewModel.isSelected(muscleGroup: muscleGroup) ?
                                 .gray : .white
                         )
                         .onTapGesture {
-                            selectedMuscleGroups.append(muscleGroup)
+                            viewModel.switchSelection(muscleGroup: muscleGroup)
                         }
                     }
                 }
                 
                 Section {
-                    Button("Сохрнаить упражнение") {
-                        let newExerciseType = ExerciseType(
-                            id: UUID().uuidString,
-                            name: name,
-                            muscleGroups: selectedMuscleGroups,
-                            isBodyWeight: isBodyWeight
-                        )
-                        
+                    Button("Сохранить упражнение") {
                         do {
-                            try ExerciseManager.shared.addExercise(newExerciseType)
+                            try viewModel.save()
                         }
                         catch {
-                           print("Error saving new exercise type: \(error)")
+                            print("DEBUG: Ошибка сохранения нового ExerciseType")
                         }
-                        
                         dismiss()
                     }
                 }
