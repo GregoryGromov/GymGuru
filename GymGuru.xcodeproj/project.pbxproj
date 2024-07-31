@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F1F9D852C5A36FE004B5094 /* ExerciseType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F9D842C5A36FE004B5094 /* ExerciseType+Extension.swift */; };
+		5F1F9D882C5A3E14004B5094 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F9D872C5A3E14004B5094 /* TestView.swift */; };
+		5F1F9D8D2C5A41E6004B5094 /* ExerciseTypeCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F9D8C2C5A41E6004B5094 /* ExerciseTypeCreationView.swift */; };
+		5F1F9D8F2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F9D8E2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift */; };
 		5F3580872C5908ED001BA25D /* CoreDaraErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3580862C5908ED001BA25D /* CoreDaraErrors.swift */; };
 		5F35808B2C591184001BA25D /* FileManagerErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35808A2C591184001BA25D /* FileManagerErrors.swift */; };
 		5F7BCE672C558BA7006B1E16 /* TrainingGeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE662C558BA7006B1E16 /* TrainingGeneralViewModel.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F1F9D842C5A36FE004B5094 /* ExerciseType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerciseType+Extension.swift"; sourceTree = "<group>"; };
+		5F1F9D872C5A3E14004B5094 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		5F1F9D8C2C5A41E6004B5094 /* ExerciseTypeCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeCreationView.swift; sourceTree = "<group>"; };
+		5F1F9D8E2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeCreationViewModel.swift; sourceTree = "<group>"; };
 		5F3580862C5908ED001BA25D /* CoreDaraErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDaraErrors.swift; sourceTree = "<group>"; };
 		5F35808A2C591184001BA25D /* FileManagerErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerErrors.swift; sourceTree = "<group>"; };
 		5F7BCE662C558BA7006B1E16 /* TrainingGeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingGeneralViewModel.swift; sourceTree = "<group>"; };
@@ -74,6 +82,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F1F9D832C5A36C1004B5094 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5F1F9D842C5A36FE004B5094 /* ExerciseType+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5F1F9D862C5A3DFF004B5094 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				5F1F9D872C5A3E14004B5094 /* TestView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		5F1F9D892C5A3F43004B5094 /* ExerciseTypeCreation */ = {
+			isa = PBXGroup;
+			children = (
+				5F1F9D8B2C5A3F53004B5094 /* ViewModel */,
+				5F1F9D8A2C5A3F50004B5094 /* View */,
+			);
+			path = ExerciseTypeCreation;
+			sourceTree = "<group>";
+		};
+		5F1F9D8A2C5A3F50004B5094 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F1F9D8C2C5A41E6004B5094 /* ExerciseTypeCreationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F1F9D8B2C5A3F53004B5094 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F1F9D8E2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5F7BCE682C558E64006B1E16 /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +185,7 @@
 		5F9A9C382C5814DD00C8C413 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5F1F9D832C5A36C1004B5094 /* Extensions */,
 				5F9A9C3C2C5825E600C8C413 /* Errors */,
 				5F9A9C392C5814EE00C8C413 /* Keys */,
 			);
@@ -187,6 +237,7 @@
 		5F9E26012C5119AB008F0CD3 /* GymGuru */ = {
 			isa = PBXGroup;
 			children = (
+				5F1F9D862C5A3DFF004B5094 /* Test */,
 				5F9A9C432C58F13C00C8C413 /* Storage */,
 				5F9A9C382C5814DD00C8C413 /* Utilities */,
 				5F9E26162C511A89008F0CD3 /* App */,
@@ -211,8 +262,8 @@
 		5F9E26162C511A89008F0CD3 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				5F9E26042C5119AB008F0CD3 /* ContentView.swift */,
 				5F9E26022C5119AB008F0CD3 /* GymGuruApp.swift */,
+				5F9E26042C5119AB008F0CD3 /* ContentView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -315,8 +366,9 @@
 		5FFDFFF22C5158B800AA1119 /* ProcessTraining */ = {
 			isa = PBXGroup;
 			children = (
-				5F7BCE682C558E64006B1E16 /* General */,
 				5F7BCE692C558E76006B1E16 /* AddExercise */,
+				5F1F9D892C5A3F43004B5094 /* ExerciseTypeCreation */,
+				5F7BCE682C558E64006B1E16 /* General */,
 				5F91D0452C566E66005F7C89 /* ExerciseDetail */,
 			);
 			path = ProcessTraining;
@@ -425,6 +477,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F9E26052C5119AB008F0CD3 /* ContentView.swift in Sources */,
+				5F1F9D882C5A3E14004B5094 /* TestView.swift in Sources */,
+				5F1F9D852C5A36FE004B5094 /* ExerciseType+Extension.swift in Sources */,
 				5F91D04B2C567168005F7C89 /* ExerciseDetailView.swift in Sources */,
 				5FFDFFE72C514C8900AA1119 /* MainView.swift in Sources */,
 				5F7BCE672C558BA7006B1E16 /* TrainingGeneralViewModel.swift in Sources */,
@@ -434,6 +488,7 @@
 				5F9A9C4B2C58F37F00C8C413 /* CoreDataService.swift in Sources */,
 				5FFDFFEF2C51545B00AA1119 /* TrainingRouterView.swift in Sources */,
 				5F9E261F2C511C7D008F0CD3 /* Exercise.swift in Sources */,
+				5F1F9D8F2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift in Sources */,
 				5F9A9C402C58295700C8C413 /* ExerciseManager.swift in Sources */,
 				5F91D0492C566EBD005F7C89 /* ExerciseDetailViewModel.swift in Sources */,
 				5FFDFFFC2C515B0600AA1119 /* TrainingGeneralView.swift in Sources */,
@@ -442,6 +497,7 @@
 				5F9A9C3E2C58261E00C8C413 /* DataStorageErrors.swift in Sources */,
 				5F9E261D2C511BE8008F0CD3 /* ESet.swift in Sources */,
 				5F35808B2C591184001BA25D /* FileManagerErrors.swift in Sources */,
+				5F1F9D8D2C5A41E6004B5094 /* ExerciseTypeCreationView.swift in Sources */,
 				5F3580872C5908ED001BA25D /* CoreDaraErrors.swift in Sources */,
 				5F7BCE6F2C558F19006B1E16 /* AddExerciseViewModel.swift in Sources */,
 				5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */,

@@ -20,6 +20,14 @@ class ExerciseManager {
         )
     ]
     
+    func getExerciseTypes() throws -> [ExerciseType] {
+        let builtInExerciseTypes = ExerciseType.MOCK1
+        let customExerciseTypes = try loadExercises()
+        let allExercise = builtInExerciseTypes + customExerciseTypes
+        
+        return allExercise
+    }
+    
     private var documentsDirectory: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
@@ -41,8 +49,6 @@ class ExerciseManager {
         do {
             let data = try Data(contentsOf: fileURL) // Чтение данных из файла
             let exercises = try JSONDecoder().decode([ExerciseType].self, from: data) //
-            print("ЗАГРУЗИЛИ :)")
-            print(exercises)
             return exercises
         } catch {
             throw error
@@ -52,6 +58,12 @@ class ExerciseManager {
     func addExercise(_ exerciseType: ExerciseType) throws {
         var existingExerciseTypes = try loadExercises()
         existingExerciseTypes.append(exerciseType)
+        try saveExercises(existingExerciseTypes)
+    }
+    
+    func addExercises(_ exerciseTypes: [ExerciseType]) throws {
+        var existingExerciseTypes = try loadExercises()
+        existingExerciseTypes.append(contentsOf: exerciseTypes)
         try saveExercises(existingExerciseTypes)
     }
     
@@ -66,7 +78,7 @@ class ExerciseManager {
         try saveExercises(existingExerciseTypes)
     }
     
-    func deleteExercise(byId id: String) throws {
+    func deleteExerciseType(byId id: String) throws {
         var existingExerciseTypes = try loadExercises()
         for index in existingExerciseTypes.indices {
             if existingExerciseTypes[index].id == id {
@@ -75,5 +87,9 @@ class ExerciseManager {
             }
         }
         try saveExercises(existingExerciseTypes)
+    }
+    
+    func deleteAllExerciseTypes() throws {
+        try saveExercises([])
     }
 }
