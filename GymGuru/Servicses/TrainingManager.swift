@@ -1,21 +1,24 @@
 import Foundation
 
 final class TrainingManager: ObservableObject {
-    let dataManger: DataManager
+    let dataManager: DataManager
+    let stateService: TrainingStateService
     
     @Published var exercises: [String : Exercise]
-    let creationDate: Int
+    @Published var comment: String?
+    var creationDate: Int?
     
-    init(dataManger: DataManager) {
-        self.dataManger = dataManger
-        self.creationDate = 2288
+    init(dataManager: DataManager, stateService: TrainingStateService) {
+        self.dataManager = dataManager
+        self.stateService = stateService
         
-        do {
-            self.exercises = try TrainingManager.loadExercises()
-        }
-        catch {
+        if stateService.isTrainingInProgress() {
+            print("DEGUG: Тренировка в процессе")
+            self.creationDate = TrainingManager.loadDate() ?? Date().toInt
+            self.exercises = TrainingManager.safeLoadExercises()
+        } else {
             self.exercises = [:]
-            print(error)
+            self.comment = nil
         }
     }
     
@@ -31,14 +34,19 @@ final class TrainingManager: ObservableObject {
         save()
     }
     
+    func deleteExercise(byId id: String) {
+        exercises[id] = nil
+        save()
+    }
+    
 //  MARK: - Data storage
     
     private func save() {
+        saveDate(creationDate!)
         do {
-            saveDate(creationDate)
             try saveExercises(exercises)
         } catch {
-            print(error)
+            print("DEBUG: Error saving exercises - \(error)")
         }
     }
         
@@ -63,17 +71,42 @@ final class TrainingManager: ObservableObject {
         throw DataStorageError.convertingDataFailed
     }
     
+    static private func safeLoadExercises() -> [String: Exercise] {
+        do {
+            return try loadExercises()
+        } catch {
+            print("DEBUG: Error loading exercises - \(error)")
+            return [:]
+        }
+    }
+    
     private func saveDate(_ date: Int) {
         UserDefaults.standard.set(date, forKey: UserDefaultsKeys.dateCreation)
     }
     
-    private func loadDate() -> Int? {
+    static private func loadDate() -> Int? {
         return UserDefaults.standard.value(forKey: UserDefaultsKeys.dateCreation) as? Int
     }
 
 //  MARK: -  State management
+    
+    func startTraining() {
+        print("DEGUG: Начата новая тренировка")
+        self.creationDate = Date().toInt
+    }
 
     func finishTraining() {
+        let exerciseArray = Array(exercises.values)
         
+        let newTraining = Training(
+            dateStart: creationDate!,
+            dateEnd: Date().toInt,
+            exercises: exerciseArray,
+            programId: "no id", // КОСТЫЛЬ
+            comment: comment
+        )
+        
+        dataManager.addTraining(newTraining)
+        stateService.setTrainingIsNotInProgress()
     }
 }

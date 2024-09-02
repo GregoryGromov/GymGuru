@@ -8,9 +8,21 @@ class ExerciseTypeCreationViewModel: ObservableObject {
     
     let muscleGroups = ["Грудь", "Спина", "Руки", "Плечи"]
     
-    func isSelected(muscleGroup: String) -> Bool {
-        return selectedMuscleGroups.contains(muscleGroup)
+//    MARK: - Data managment
+    
+    func save() throws {
+        let newExerciseType = ExerciseType(
+            id: UUID().uuidString,
+            name: name,
+            muscleGroups: selectedMuscleGroups,
+            isBodyWeight: isBodyWeight,
+            isSelected: false
+        )
+        try ExerciseManager.shared.addExercise(newExerciseType)
     }
+    
+    
+//    MARK: - Selecting
     
     func switchSelection(muscleGroup: String) {
         if isSelected(muscleGroup: muscleGroup) {
@@ -20,14 +32,8 @@ class ExerciseTypeCreationViewModel: ObservableObject {
         }
     }
     
-    func save() throws {
-        let newExerciseType = ExerciseType(
-            id: UUID().uuidString,
-            name: name,
-            muscleGroups: selectedMuscleGroups,
-            isBodyWeight: isBodyWeight
-        )
-        try ExerciseManager.shared.addExercise(newExerciseType)
+    func isSelected(muscleGroup: String) -> Bool {
+        return selectedMuscleGroups.contains(muscleGroup)
     }
     
     private func deselect(muscleGroup: String) {

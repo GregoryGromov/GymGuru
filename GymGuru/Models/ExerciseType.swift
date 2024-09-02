@@ -6,4 +6,6 @@ struct ExerciseType: Identifiable, Codable {
     var name: String
     var muscleGroups: [String]
     var isBodyWeight: Bool
+    
+    var isSelected: Bool
 }

@@ -10,10 +10,12 @@ struct TrainingGeneralView: View {
     
     var body: some View {
         VStack {
+            stopwatch
             exerciseList
             addExerciseButton
+            finishTrainingButton
         }
-        .sheet(isPresented: $viewModel.showAddExerciseView) {
+        .fullScreenCover(isPresented: $viewModel.showAddExerciseView) {
             AddExerciseView(trainingManager: viewModel.trainingManager)
         }
         .sheet(item: $viewModel.selectedExercise) { exercise in
@@ -39,9 +41,44 @@ struct TrainingGeneralView: View {
         }
     }
     
+    private var finishTrainingButton: some View {
+        Button("Finish him") {
+            viewModel.finishTraining()
+        }
+    }
+    
+    private var stopwatch: some View {
+        VStack {
+            Text("\(viewModel.secondsElapsed) секунд")
+                .font(.largeTitle)
+                .padding()
+            
+            HStack {
+                Button(action: viewModel.startStopwatch) {
+                    Text("Старт")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(DefaultButtonStyle())
+
+                Button(action: viewModel.stopStopwatch) {
+                    Text("Стоп")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(DefaultButtonStyle())
+                
+                Button(action: viewModel.resetStopwatch) {
+                    Text("Сброс")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(DefaultButtonStyle())
+            }
+            .padding()
+        }
+    }
+    
     private func exerciseCell(for exercise: Exercise) -> some View {
         HStack {
-            Text(exercise.nameId)
+            Text(ExerciseManager.shared.getExerciseType(byId: exercise.typeId)) // КОСТЫЛЬ
             Spacer()
             VStack {
                 ForEach(exercise.sets) { set in
@@ -50,6 +87,14 @@ struct TrainingGeneralView: View {
                         Text("x \(set.reps)")
                     }
                 }
+            }
+        }
+        .swipeActions(allowsFullSwipe: true) {
+            Button() {
+                viewModel.deleteExercise(byId: exercise.id)
+            } label: {
+                Label("Delete", systemImage: "trash.fill")
+                    .tint(.red)
             }
         }
     }

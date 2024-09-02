@@ -2,74 +2,75 @@ import SwiftUI
 
 struct AddExerciseView: View {
     
+    @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: AddExerciseViewModel
     
     init(trainingManager: TrainingManager) {
         _viewModel = StateObject(wrappedValue: AddExerciseViewModel(trainingManager: trainingManager))
     }
     
-    @State var name = ""
-    @State var showExerciseTypeCreationView = false
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(viewModel.exerciseTypes) { type in
-                    HStack {
-                        Text(type.name)
-                        Spacer()
-                        VStack {
-                            ForEach(type.muscleGroups, id: \.self) { muscleGroup in
-                                Text(muscleGroup)
-                            }
-                        }
+        NavigationStack {
+            VStack {
+                exerciseTypesList
+                
+                addExerciseToTrainingButton
+                
+                exerciseTypeCreationButton
+            }
+            .sheet(isPresented: $viewModel.showExerciseTypeCreationView) {
+                try? viewModel.load()
+            } content: {
+                ExerciseTypeCreationView()
+            }
+            .navigationTitle("Упражнения")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("закрыть")
                     }
                 }
             }
-            
-            Button("Добавить кастомные упражнения") {
-                do {
-                    try ExerciseManager.shared.addExercises(ExerciseType.MOCK2)
+        }
+    }
+    
+    
+    var exerciseTypesList: some View {
+        List {
+            ForEach(viewModel.filteredExerciseTypes) { type in
+                HStack {
+                    Text(type.name)
+                    Spacer()
+                    VStack {
+                        ForEach(type.muscleGroups, id: \.self) { muscleGroup in
+                            Text(muscleGroup)
+                        }
+                    }
                 }
-                catch {
-                    print("Не удалось добавить MOCK2")
+                .background(type.isSelected ? .blue : .clear)
+                .onTapGesture {
+                    viewModel.switchExerciseTypeSelection(byId: type.id)
                 }
-            }
-            
-            Button("Загрузить") {
-                do {
-                    try viewModel.load()
-                }
-                catch {
-                    print("Не удалось загрузить упражнения")
-                }
-            }
-            
-            Button("Удалить") {
-                do {
-                    try ExerciseManager.shared.deleteAllExerciseTypes()
-                }
-                catch {
-                    print("Не удалось удалить все упражнения")
-                }
-            }
-            
-            Button("Создать новое упражнение") {
-                showExerciseTypeCreationView.toggle()
             }
         }
-        .sheet(isPresented: $showExerciseTypeCreationView) {
-            do {
-                try viewModel.load()
-                print("Упражнения успешно обновлены")
-            }
-            catch {
-                print("Упс")
-            }
-        } content: {
-            ExerciseTypeCreationView()
+        .searchable(text: $viewModel.searchQuery, prompt: "Искать упражнение")
+    }
+    
+    var exerciseTypeCreationButton: some View {
+        Button("Создать новое упражнение") {
+            viewModel.showExerciseTypeCreationView.toggle()
         }
-
+    }
+    
+    
+    var addExerciseToTrainingButton: some View {
+        Button("Add to training") {
+            viewModel.addSelectedExerciseTypes()
+            dismiss()
+        }
     }
 }
 

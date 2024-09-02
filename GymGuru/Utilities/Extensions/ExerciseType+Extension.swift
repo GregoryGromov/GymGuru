@@ -6,31 +6,36 @@ extension ExerciseType {
             id: "1",
             name: "Жим лежа",
             muscleGroups: ["Грудь", "Плечи", "Бицепс"],
-            isBodyWeight: false
+            isBodyWeight: false,
+            isSelected: false
         ),
         ExerciseType(
             id: "2",
             name: "Приседания",
             muscleGroups: ["Ноги", "Ягодицы"],
-            isBodyWeight: false
+            isBodyWeight: false,
+            isSelected: false
         ),
         ExerciseType(
             id: "3",
             name: "Подтягивания",
             muscleGroups: ["Спина", "Бицепс"],
-            isBodyWeight: true
+            isBodyWeight: true,
+            isSelected: false
         ),
         ExerciseType(
             id: "4",
             name: "Становая тяга",
             muscleGroups: ["Ноги", "Спина", "Ягодицы"],
-            isBodyWeight: false
+            isBodyWeight: false,
+            isSelected: false
         ),
         ExerciseType(
             id: "5",
             name: "Отжимания",
             muscleGroups: ["Грудь", "Плечи", "Трицепс"],
-            isBodyWeight: true
+            isBodyWeight: true,
+            isSelected: false
         )
     ]
     
@@ -39,31 +44,36 @@ extension ExerciseType {
             id: "6",
             name: "Тяга верхнего блока",
             muscleGroups: ["Спина", "Бицепс"],
-            isBodyWeight: false
+            isBodyWeight: false,
+            isSelected: false
         ),
         ExerciseType(
             id: "7",
             name: "Подъем на носки (икры)",
             muscleGroups: ["Икры"],
-            isBodyWeight: false
+            isBodyWeight: false,
+            isSelected: false
         ),
         ExerciseType(
             id: "8",
             name: "Планка",
             muscleGroups: ["Пресс", "Стабилизаторы"],
-            isBodyWeight: true
+            isBodyWeight: true,
+            isSelected: false
         ),
         ExerciseType(
             id: "9",
             name: "Боковая планка",
             muscleGroups: ["Косые мышцы", "Стабилизаторы"],
-            isBodyWeight: true
+            isBodyWeight: true,
+            isSelected: false
         ),
         ExerciseType(
             id: "10",
             name: "Скручивания на пресс",
             muscleGroups: ["Пресс"],
-            isBodyWeight: true
+            isBodyWeight: true,
+            isSelected: false
         )
     ]
 }

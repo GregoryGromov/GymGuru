@@ -15,7 +15,9 @@ struct ExerciseDetailView: View {
     
     var body: some View {
         VStack {
-            Text(viewModel.exercise.nameId).font(.title).bold()
+            Text(ExerciseManager.shared.getExerciseType(byId: viewModel.exercise.typeId)) // КОСТЫЛЬ
+                .font(.title)
+                .bold()
             setsList
             
             setAdding

@@ -10,13 +10,15 @@ class ExerciseManager {
             id: UUID().uuidString,
             name: "Жим лежа",
             muscleGroups: ["Грудь", "Плечи", "Трицепс"],
-            isBodyWeight: false
+            isBodyWeight: false, 
+            isSelected: false
         ),
         ExerciseType(
             id: UUID().uuidString,
             name: "Тяга блока сидя",
             muscleGroups: ["Спина", "Плечи", "Бицепс"],
-            isBodyWeight: false
+            isBodyWeight: false,
+            isSelected: false
         )
     ]
     
@@ -36,7 +38,7 @@ class ExerciseManager {
         return documentsDirectory.appendingPathComponent("exercises.json")
     }
     
-    func saveExercises(_ exercises: [ExerciseType]) throws {
+    func saveExerciseTypes(_ exercises: [ExerciseType]) throws {
         do {
             let data = try JSONEncoder().encode(exercises)
             try data.write(to: fileURL) 
@@ -58,13 +60,13 @@ class ExerciseManager {
     func addExercise(_ exerciseType: ExerciseType) throws {
         var existingExerciseTypes = try loadExercises()
         existingExerciseTypes.append(exerciseType)
-        try saveExercises(existingExerciseTypes)
+        try saveExerciseTypes(existingExerciseTypes)
     }
     
     func addExercises(_ exerciseTypes: [ExerciseType]) throws {
         var existingExerciseTypes = try loadExercises()
         existingExerciseTypes.append(contentsOf: exerciseTypes)
-        try saveExercises(existingExerciseTypes)
+        try saveExerciseTypes(existingExerciseTypes)
     }
     
     func updateExercise(_ exerciseType: ExerciseType) throws {
@@ -75,7 +77,7 @@ class ExerciseManager {
                 break
             }
         }
-        try saveExercises(existingExerciseTypes)
+        try saveExerciseTypes(existingExerciseTypes)
     }
     
     func deleteExerciseType(byId id: String) throws {
@@ -86,10 +88,24 @@ class ExerciseManager {
                 break
             }
         }
-        try saveExercises(existingExerciseTypes)
+        try saveExerciseTypes(existingExerciseTypes)
     }
     
     func deleteAllExerciseTypes() throws {
-        try saveExercises([])
+        try saveExerciseTypes([])
+    }
+    
+    
+    
+    // TODO: Это временное решение (так как оно непроизводительное)
+//    ПО идее нужно будет сделать этот класс не shared, а настоящим и хранить в нем все имеющиеся типы
+    func getExerciseType(byId id: String) -> String {
+        let allExerciseTypes = try! getExerciseTypes()        
+        for type in allExerciseTypes {
+            if type.id == id {
+                return type.name
+            }
+        }
+        return "no name"
     }
 }

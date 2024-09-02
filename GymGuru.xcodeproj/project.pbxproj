@@ -18,6 +18,8 @@
 		5F7BCE6F2C558F19006B1E16 /* AddExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE6E2C558F19006B1E16 /* AddExerciseViewModel.swift */; };
 		5F91D0492C566EBD005F7C89 /* ExerciseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91D0482C566EBD005F7C89 /* ExerciseDetailViewModel.swift */; };
 		5F91D04B2C567168005F7C89 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91D04A2C567168005F7C89 /* ExerciseDetailView.swift */; };
+		5F984BEE2C775306007A5C42 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F984BED2C775306007A5C42 /* Date+Extension.swift */; };
+		5F984BF02C775310007A5C42 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F984BEF2C775310007A5C42 /* Int+Extension.swift */; };
 		5F9A9C3B2C58150C00C8C413 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A9C3A2C58150C00C8C413 /* UserDefaultsKeys.swift */; };
 		5F9A9C3E2C58261E00C8C413 /* DataStorageErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A9C3D2C58261E00C8C413 /* DataStorageErrors.swift */; };
 		5F9A9C402C58295700C8C413 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A9C3F2C58295700C8C413 /* ExerciseManager.swift */; };
@@ -30,9 +32,13 @@
 		5F9E260A2C5119AC008F0CD3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E26092C5119AC008F0CD3 /* Preview Assets.xcassets */; };
 		5F9E261D2C511BE8008F0CD3 /* ESet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E261C2C511BE8008F0CD3 /* ESet.swift */; };
 		5F9E261F2C511C7D008F0CD3 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E261E2C511C7D008F0CD3 /* Exercise.swift */; };
+		5FACD48A2C85E222003C0F6F /* TrainingRouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD4892C85E222003C0F6F /* TrainingRouterViewModel.swift */; };
+		5FACD48C2C85E38E003C0F6F /* TrainingStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */; };
+		5FC6426C2C789EC3009D77C1 /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6426B2C789EC3009D77C1 /* StopwatchViewModel.swift */; };
+		5FC6426E2C789ECE009D77C1 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6426D2C789ECE009D77C1 /* StopwatchView.swift */; };
 		5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE02C5148EA00AA1119 /* Training.swift */; };
 		5FFDFFE32C51499200AA1119 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE22C51499200AA1119 /* DataManager.swift */; };
-		5FFDFFE72C514C8900AA1119 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE62C514C8900AA1119 /* MainView.swift */; };
+		5FFDFFE72C514C8900AA1119 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE62C514C8900AA1119 /* TabBarView.swift */; };
 		5FFDFFEF2C51545B00AA1119 /* TrainingRouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFEE2C51545B00AA1119 /* TrainingRouterView.swift */; };
 		5FFDFFF12C51567300AA1119 /* TrainingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFF02C51567300AA1119 /* TrainingManager.swift */; };
 		5FFDFFFC2C515B0600AA1119 /* TrainingGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFFB2C515B0600AA1119 /* TrainingGeneralView.swift */; };
@@ -50,6 +56,8 @@
 		5F7BCE6E2C558F19006B1E16 /* AddExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModel.swift; sourceTree = "<group>"; };
 		5F91D0482C566EBD005F7C89 /* ExerciseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewModel.swift; sourceTree = "<group>"; };
 		5F91D04A2C567168005F7C89 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
+		5F984BED2C775306007A5C42 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		5F984BEF2C775310007A5C42 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		5F9A9C3A2C58150C00C8C413 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		5F9A9C3D2C58261E00C8C413 /* DataStorageErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageErrors.swift; sourceTree = "<group>"; };
 		5F9A9C3F2C58295700C8C413 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
@@ -63,9 +71,13 @@
 		5F9E26092C5119AC008F0CD3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5F9E261C2C511BE8008F0CD3 /* ESet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESet.swift; sourceTree = "<group>"; };
 		5F9E261E2C511C7D008F0CD3 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		5FACD4892C85E222003C0F6F /* TrainingRouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingRouterViewModel.swift; sourceTree = "<group>"; };
+		5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingStateService.swift; sourceTree = "<group>"; };
+		5FC6426B2C789EC3009D77C1 /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
+		5FC6426D2C789ECE009D77C1 /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		5FFDFFE02C5148EA00AA1119 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		5FFDFFE22C51499200AA1119 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		5FFDFFE62C514C8900AA1119 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5FFDFFE62C514C8900AA1119 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		5FFDFFEE2C51545B00AA1119 /* TrainingRouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingRouterView.swift; sourceTree = "<group>"; };
 		5FFDFFF02C51567300AA1119 /* TrainingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingManager.swift; sourceTree = "<group>"; };
 		5FFDFFFB2C515B0600AA1119 /* TrainingGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingGeneralView.swift; sourceTree = "<group>"; };
@@ -93,6 +105,7 @@
 		5F1F9D862C5A3DFF004B5094 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				5FC6426A2C789EB2009D77C1 /* Stopwatch */,
 				5F1F9D872C5A3E14004B5094 /* TestView.swift */,
 			);
 			path = Test;
@@ -182,6 +195,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5F984BEA2C775263007A5C42 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5F984BED2C775306007A5C42 /* Date+Extension.swift */,
+				5F984BEF2C775310007A5C42 /* Int+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5F9A9C382C5814DD00C8C413 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +259,7 @@
 		5F9E26012C5119AB008F0CD3 /* GymGuru */ = {
 			isa = PBXGroup;
 			children = (
+				5F984BEA2C775263007A5C42 /* Extensions */,
 				5F1F9D862C5A3DFF004B5094 /* Test */,
 				5F9A9C432C58F13C00C8C413 /* Storage */,
 				5F9A9C382C5814DD00C8C413 /* Utilities */,
@@ -282,7 +305,7 @@
 		5F9E26182C511A93008F0CD3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				5FFDFFE82C514C8C00AA1119 /* Main */,
+				5FFDFFE82C514C8C00AA1119 /* TabBar */,
 				5FFDFFF32C51590300AA1119 /* Training */,
 				5FFDFFF42C51590A00AA1119 /* Statistics */,
 			);
@@ -303,6 +326,7 @@
 				5FFDFFF02C51567300AA1119 /* TrainingManager.swift */,
 				5F9A9C3F2C58295700C8C413 /* ExerciseManager.swift */,
 				5F9A9C4A2C58F37F00C8C413 /* CoreDataService.swift */,
+				5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */,
 			);
 			path = Servicses;
 			sourceTree = "<group>";
@@ -315,19 +339,28 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		5FFDFFE82C514C8C00AA1119 /* Main */ = {
+		5FC6426A2C789EB2009D77C1 /* Stopwatch */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6426B2C789EC3009D77C1 /* StopwatchViewModel.swift */,
+				5FC6426D2C789ECE009D77C1 /* StopwatchView.swift */,
+			);
+			path = Stopwatch;
+			sourceTree = "<group>";
+		};
+		5FFDFFE82C514C8C00AA1119 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
 				5FFDFFEA2C514C9600AA1119 /* ViewModel */,
 				5FFDFFE92C514C9200AA1119 /* View */,
 			);
-			path = Main;
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		5FFDFFE92C514C9200AA1119 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5FFDFFE62C514C8900AA1119 /* MainView.swift */,
+				5FFDFFE62C514C8900AA1119 /* TabBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -359,6 +392,7 @@
 		5FFDFFED2C51542500AA1119 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5FACD4892C85E222003C0F6F /* TrainingRouterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -477,10 +511,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F9E26052C5119AB008F0CD3 /* ContentView.swift in Sources */,
+				5FACD48A2C85E222003C0F6F /* TrainingRouterViewModel.swift in Sources */,
 				5F1F9D882C5A3E14004B5094 /* TestView.swift in Sources */,
 				5F1F9D852C5A36FE004B5094 /* ExerciseType+Extension.swift in Sources */,
 				5F91D04B2C567168005F7C89 /* ExerciseDetailView.swift in Sources */,
-				5FFDFFE72C514C8900AA1119 /* MainView.swift in Sources */,
+				5FFDFFE72C514C8900AA1119 /* TabBarView.swift in Sources */,
 				5F7BCE672C558BA7006B1E16 /* TrainingGeneralViewModel.swift in Sources */,
 				5F9A9C3B2C58150C00C8C413 /* UserDefaultsKeys.swift in Sources */,
 				5FFDFFE32C51499200AA1119 /* DataManager.swift in Sources */,
@@ -493,14 +528,19 @@
 				5F91D0492C566EBD005F7C89 /* ExerciseDetailViewModel.swift in Sources */,
 				5FFDFFFC2C515B0600AA1119 /* TrainingGeneralView.swift in Sources */,
 				5F9E26032C5119AB008F0CD3 /* GymGuruApp.swift in Sources */,
+				5FACD48C2C85E38E003C0F6F /* TrainingStateService.swift in Sources */,
 				5F9A9C422C5829FF00C8C413 /* ExerciseType.swift in Sources */,
 				5F9A9C3E2C58261E00C8C413 /* DataStorageErrors.swift in Sources */,
+				5FC6426E2C789ECE009D77C1 /* StopwatchView.swift in Sources */,
 				5F9E261D2C511BE8008F0CD3 /* ESet.swift in Sources */,
+				5FC6426C2C789EC3009D77C1 /* StopwatchViewModel.swift in Sources */,
+				5F984BF02C775310007A5C42 /* Int+Extension.swift in Sources */,
 				5F35808B2C591184001BA25D /* FileManagerErrors.swift in Sources */,
 				5F1F9D8D2C5A41E6004B5094 /* ExerciseTypeCreationView.swift in Sources */,
 				5F3580872C5908ED001BA25D /* CoreDaraErrors.swift in Sources */,
 				5F7BCE6F2C558F19006B1E16 /* AddExerciseViewModel.swift in Sources */,
 				5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */,
+				5F984BEE2C775306007A5C42 /* Date+Extension.swift in Sources */,
 				5F9A9C492C58F1A400C8C413 /* MainStorage.xcdatamodeld in Sources */,
 				5FFDFFF12C51567300AA1119 /* TrainingManager.swift in Sources */,
 			);
