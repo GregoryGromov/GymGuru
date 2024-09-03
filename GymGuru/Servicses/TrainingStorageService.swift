@@ -79,7 +79,7 @@ class TrainingStorageService {
     
     //  MARK: - Fetching
     
-    func fecthTrainings() throws -> [Training] {
+    func fetchTrainings() throws -> [Training] {
         guard let trainingEntities = fetch(TrainingEntity.self) else {
             throw CoreDaraErrors.fecthFailed
         }

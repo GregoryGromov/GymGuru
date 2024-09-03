@@ -7,7 +7,7 @@ struct TabBarView: View {
         VStack {
             
             TabView {
-                Text("Статистика")
+                StatisticsMenuView(dataManager: dataManager)
                     .tabItem {
                         Image(systemName: "chart.line.uptrend.xyaxis")
                     }

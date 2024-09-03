@@ -35,6 +35,8 @@
 		5FACD48A2C85E222003C0F6F /* TrainingRouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD4892C85E222003C0F6F /* TrainingRouterViewModel.swift */; };
 		5FACD48C2C85E38E003C0F6F /* TrainingStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */; };
 		5FBDA16C2C873EBF00D636E3 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDA16B2C873EBF00D636E3 /* CoreDataTest.swift */; };
+		5FBDA1722C874B2E00D636E3 /* StatisticsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDA1712C874B2E00D636E3 /* StatisticsMenuView.swift */; };
+		5FBDA1742C874BED00D636E3 /* StatisticsMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDA1732C874BED00D636E3 /* StatisticsMenuViewModel.swift */; };
 		5FC6426C2C789EC3009D77C1 /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6426B2C789EC3009D77C1 /* StopwatchViewModel.swift */; };
 		5FC6426E2C789ECE009D77C1 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6426D2C789ECE009D77C1 /* StopwatchView.swift */; };
 		5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE02C5148EA00AA1119 /* Training.swift */; };
@@ -75,6 +77,8 @@
 		5FACD4892C85E222003C0F6F /* TrainingRouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingRouterViewModel.swift; sourceTree = "<group>"; };
 		5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingStateService.swift; sourceTree = "<group>"; };
 		5FBDA16B2C873EBF00D636E3 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
+		5FBDA1712C874B2E00D636E3 /* StatisticsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsMenuView.swift; sourceTree = "<group>"; };
+		5FBDA1732C874BED00D636E3 /* StatisticsMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsMenuViewModel.swift; sourceTree = "<group>"; };
 		5FC6426B2C789EC3009D77C1 /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
 		5FC6426D2C789ECE009D77C1 /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		5FFDFFE02C5148EA00AA1119 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
@@ -342,6 +346,31 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		5FBDA16E2C874AFC00D636E3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5FBDA1702C874B0700D636E3 /* ViewModel */,
+				5FBDA16F2C874B0300D636E3 /* View */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		5FBDA16F2C874B0300D636E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5FBDA1712C874B2E00D636E3 /* StatisticsMenuView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5FBDA1702C874B0700D636E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5FBDA1732C874BED00D636E3 /* StatisticsMenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5FC6426A2C789EB2009D77C1 /* Stopwatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +452,7 @@
 		5FFDFFF42C51590A00AA1119 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				5FBDA16E2C874AFC00D636E3 /* Menu */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -515,6 +545,7 @@
 			files = (
 				5F9E26052C5119AB008F0CD3 /* ContentView.swift in Sources */,
 				5FACD48A2C85E222003C0F6F /* TrainingRouterViewModel.swift in Sources */,
+				5FBDA1722C874B2E00D636E3 /* StatisticsMenuView.swift in Sources */,
 				5F1F9D882C5A3E14004B5094 /* TestView.swift in Sources */,
 				5F1F9D852C5A36FE004B5094 /* ExerciseType+Extension.swift in Sources */,
 				5F91D04B2C567168005F7C89 /* ExerciseDetailView.swift in Sources */,
@@ -528,6 +559,7 @@
 				5F9E261F2C511C7D008F0CD3 /* Exercise.swift in Sources */,
 				5F1F9D8F2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift in Sources */,
 				5F9A9C402C58295700C8C413 /* ExerciseManager.swift in Sources */,
+				5FBDA1742C874BED00D636E3 /* StatisticsMenuViewModel.swift in Sources */,
 				5F91D0492C566EBD005F7C89 /* ExerciseDetailViewModel.swift in Sources */,
 				5FFDFFFC2C515B0600AA1119 /* TrainingGeneralView.swift in Sources */,
 				5F9E26032C5119AB008F0CD3 /* GymGuruApp.swift in Sources */,

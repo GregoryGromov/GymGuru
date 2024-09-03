@@ -63,7 +63,7 @@ struct CoreDataTest: View {
                 
                 Button("Загрузить тренировку из CoreData") {
                     do {
-                        let trainings = try storageManager.fecthTrainings()
+                        let trainings = try storageManager.fetchTrainings()
                         fetchedTrainings = trainings
                     }
                     catch {
