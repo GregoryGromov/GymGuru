@@ -25,7 +25,7 @@
 		5F9A9C402C58295700C8C413 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A9C3F2C58295700C8C413 /* ExerciseManager.swift */; };
 		5F9A9C422C5829FF00C8C413 /* ExerciseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A9C412C5829FF00C8C413 /* ExerciseType.swift */; };
 		5F9A9C492C58F1A400C8C413 /* MainStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A9C472C58F1A400C8C413 /* MainStorage.xcdatamodeld */; };
-		5F9A9C4B2C58F37F00C8C413 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A9C4A2C58F37F00C8C413 /* CoreDataService.swift */; };
+		5F9A9C4B2C58F37F00C8C413 /* TrainingStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9A9C4A2C58F37F00C8C413 /* TrainingStorageService.swift */; };
 		5F9E26032C5119AB008F0CD3 /* GymGuruApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E26022C5119AB008F0CD3 /* GymGuruApp.swift */; };
 		5F9E26052C5119AB008F0CD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E26042C5119AB008F0CD3 /* ContentView.swift */; };
 		5F9E26072C5119AC008F0CD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E26062C5119AC008F0CD3 /* Assets.xcassets */; };
@@ -34,6 +34,7 @@
 		5F9E261F2C511C7D008F0CD3 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E261E2C511C7D008F0CD3 /* Exercise.swift */; };
 		5FACD48A2C85E222003C0F6F /* TrainingRouterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD4892C85E222003C0F6F /* TrainingRouterViewModel.swift */; };
 		5FACD48C2C85E38E003C0F6F /* TrainingStateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */; };
+		5FBDA16C2C873EBF00D636E3 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDA16B2C873EBF00D636E3 /* CoreDataTest.swift */; };
 		5FC6426C2C789EC3009D77C1 /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6426B2C789EC3009D77C1 /* StopwatchViewModel.swift */; };
 		5FC6426E2C789ECE009D77C1 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6426D2C789ECE009D77C1 /* StopwatchView.swift */; };
 		5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE02C5148EA00AA1119 /* Training.swift */; };
@@ -63,7 +64,7 @@
 		5F9A9C3F2C58295700C8C413 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
 		5F9A9C412C5829FF00C8C413 /* ExerciseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseType.swift; sourceTree = "<group>"; };
 		5F9A9C482C58F1A400C8C413 /* MainStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MainStorage.xcdatamodel; sourceTree = "<group>"; };
-		5F9A9C4A2C58F37F00C8C413 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		5F9A9C4A2C58F37F00C8C413 /* TrainingStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingStorageService.swift; sourceTree = "<group>"; };
 		5F9E25FF2C5119AB008F0CD3 /* GymGuru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymGuru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9E26022C5119AB008F0CD3 /* GymGuruApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymGuruApp.swift; sourceTree = "<group>"; };
 		5F9E26042C5119AB008F0CD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		5F9E261E2C511C7D008F0CD3 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		5FACD4892C85E222003C0F6F /* TrainingRouterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingRouterViewModel.swift; sourceTree = "<group>"; };
 		5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingStateService.swift; sourceTree = "<group>"; };
+		5FBDA16B2C873EBF00D636E3 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		5FC6426B2C789EC3009D77C1 /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
 		5FC6426D2C789ECE009D77C1 /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		5FFDFFE02C5148EA00AA1119 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				5FC6426A2C789EB2009D77C1 /* Stopwatch */,
 				5F1F9D872C5A3E14004B5094 /* TestView.swift */,
+				5FBDA16B2C873EBF00D636E3 /* CoreDataTest.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -325,7 +328,7 @@
 				5FFDFFE22C51499200AA1119 /* DataManager.swift */,
 				5FFDFFF02C51567300AA1119 /* TrainingManager.swift */,
 				5F9A9C3F2C58295700C8C413 /* ExerciseManager.swift */,
-				5F9A9C4A2C58F37F00C8C413 /* CoreDataService.swift */,
+				5F9A9C4A2C58F37F00C8C413 /* TrainingStorageService.swift */,
 				5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */,
 			);
 			path = Servicses;
@@ -520,7 +523,7 @@
 				5F9A9C3B2C58150C00C8C413 /* UserDefaultsKeys.swift in Sources */,
 				5FFDFFE32C51499200AA1119 /* DataManager.swift in Sources */,
 				5F7BCE6D2C558EC9006B1E16 /* AddExerciseView.swift in Sources */,
-				5F9A9C4B2C58F37F00C8C413 /* CoreDataService.swift in Sources */,
+				5F9A9C4B2C58F37F00C8C413 /* TrainingStorageService.swift in Sources */,
 				5FFDFFEF2C51545B00AA1119 /* TrainingRouterView.swift in Sources */,
 				5F9E261F2C511C7D008F0CD3 /* Exercise.swift in Sources */,
 				5F1F9D8F2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift in Sources */,
@@ -528,6 +531,7 @@
 				5F91D0492C566EBD005F7C89 /* ExerciseDetailViewModel.swift in Sources */,
 				5FFDFFFC2C515B0600AA1119 /* TrainingGeneralView.swift in Sources */,
 				5F9E26032C5119AB008F0CD3 /* GymGuruApp.swift in Sources */,
+				5FBDA16C2C873EBF00D636E3 /* CoreDataTest.swift in Sources */,
 				5FACD48C2C85E38E003C0F6F /* TrainingStateService.swift in Sources */,
 				5F9A9C422C5829FF00C8C413 /* ExerciseType.swift in Sources */,
 				5F9A9C3E2C58261E00C8C413 /* DataStorageErrors.swift in Sources */,

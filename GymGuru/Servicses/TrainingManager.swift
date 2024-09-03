@@ -99,6 +99,7 @@ final class TrainingManager: ObservableObject {
         let exerciseArray = Array(exercises.values)
         
         let newTraining = Training(
+            id: UUID().uuidString, // ПОДУМАТЬ НАД ЭТИМ
             dateStart: creationDate!,
             dateEnd: Date().toInt,
             exercises: exerciseArray,

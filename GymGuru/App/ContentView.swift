@@ -4,7 +4,8 @@ struct ContentView: View {
     var body: some View {
 //        MainView()
 //        TestView()
-        TabBarView()
+//        TabBarView()
 //        SimpleStopwatchView()
+        CoreDataTest()
     }
 }
