@@ -7,6 +7,14 @@
         <attribute name="typeId" optional="YES" attributeType="String"/>
         <relationship name="sets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SetEntity"/>
     </entity>
+    <entity name="ProgramEntity" representedClassName="ProgramEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="colorThemeID" optional="YES" attributeType="String"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="dateCreation" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="exerciseTypeIDs" optional="YES" attributeType="Transformable"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="SetEntity" representedClassName="SetEntity" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

@@ -1,6 +1,12 @@
 import Foundation
 
-final class TrainingManager: ObservableObject {
+enum TrainingStartMode {
+    case free
+    case withProgram
+}
+
+final class TrainingManager: ObservableObject, ExerciseAddable {
+    
     let dataManager: DataManager
     let stateService: TrainingStateService
     
@@ -28,6 +34,10 @@ final class TrainingManager: ObservableObject {
         exercises[exercise.id] = exercise
         save()
     }
+    
+    //КОСТЫЛЬ
+    func addExerciseType(_ exerciseType: ExerciseType) {}
+    
     
     func updateExercise(_ exercise: Exercise) {
         exercises[exercise.id] = exercise
@@ -90,9 +100,21 @@ final class TrainingManager: ObservableObject {
 
 //  MARK: -  State management
     
-    func startTraining() {
-        print("DEGUG: Начата новая тренировка")
-        self.creationDate = Date().toInt
+    func startTraining(mode: TrainingStartMode, program: Program? = nil) {
+        switch mode {
+        case .free:
+            self.creationDate = Date().toInt
+            print("DEGUG: Начата новая свободная тренировка")
+        case .withProgram:
+            guard let program = program else {
+                print("DEBUG: Нет программы!")
+                return
+            }
+            
+            print("DEGUG: Начата новая тренировка по программе")
+        }
+        
+        
     }
 
     func finishTraining() {

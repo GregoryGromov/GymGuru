@@ -2,7 +2,11 @@ import SwiftUI
 
 struct ExerciseTypeCreationView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel = ExerciseTypeCreationViewModel()
+    @StateObject var viewModel: ExerciseTypeCreationViewModel
+    
+    init(exerciseManager: ExerciseManager) {
+        _viewModel = StateObject(wrappedValue: ExerciseTypeCreationViewModel(exerciseManager: exerciseManager))
+    }
    
     var body: some View {
         VStack {

@@ -4,8 +4,11 @@ struct TrainingGeneralView: View {
     
     @StateObject var viewModel: TrainingGeneralViewModel
     
-    init(trainingManager: TrainingManager) {
+    let exerciseManager: ExerciseManager
+    
+    init(trainingManager: TrainingManager, exerciseManager: ExerciseManager) {
         _viewModel = StateObject(wrappedValue: TrainingGeneralViewModel(trainingManager: trainingManager))
+        self.exerciseManager = exerciseManager
     }
     
     var body: some View {
@@ -16,10 +19,17 @@ struct TrainingGeneralView: View {
             finishTrainingButton
         }
         .fullScreenCover(isPresented: $viewModel.showAddExerciseView) {
-            AddExerciseView(trainingManager: viewModel.trainingManager)
+            AddExerciseView(
+                addingMode: .exercise,
+                exerciseStoringManager: viewModel.trainingManager,
+                exerciseManager: exerciseManager
+            )
         }
         .sheet(item: $viewModel.selectedExercise) { exercise in
-            ExerciseDetailView(trainingManager: viewModel.trainingManager, exercise: exercise)
+            ExerciseDetailView(
+                trainingManager: viewModel.trainingManager,
+                exercise: exercise,
+                exerciseManager: exerciseManager)
         }
     }
     
@@ -78,7 +88,7 @@ struct TrainingGeneralView: View {
     
     private func exerciseCell(for exercise: Exercise) -> some View {
         HStack {
-            Text(ExerciseManager.shared.getExerciseType(byId: exercise.typeId)) // КОСТЫЛЬ
+            Text(exerciseManager.getExerciseTypeName(byId: exercise.typeId)) // КОСТЫЛЬ
             Spacer()
             VStack {
                 ForEach(exercise.sets) { set in

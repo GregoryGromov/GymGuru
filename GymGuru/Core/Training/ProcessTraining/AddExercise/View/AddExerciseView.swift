@@ -1,12 +1,25 @@
 import SwiftUI
 
-struct AddExerciseView: View {
+struct AddExerciseView/*<T: ExerciseAddable>*/: View {
     
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: AddExerciseViewModel
     
-    init(trainingManager: TrainingManager) {
-        _viewModel = StateObject(wrappedValue: AddExerciseViewModel(trainingManager: trainingManager))
+    let exerciseManager: ExerciseManager
+    
+    init(
+        addingMode: AddingExeriseMode,
+        exerciseStoringManager: ExerciseAddable,
+        exerciseManager: ExerciseManager
+    ) {
+        _viewModel = StateObject(
+            wrappedValue: AddExerciseViewModel(
+                addingMode: addingMode,
+                trainingManager: exerciseStoringManager,
+                exerciseManager: exerciseManager
+            )
+        )
+        self.exerciseManager = exerciseManager
     }
     
     
@@ -22,7 +35,7 @@ struct AddExerciseView: View {
             .sheet(isPresented: $viewModel.showExerciseTypeCreationView) {
                 try? viewModel.load()
             } content: {
-                ExerciseTypeCreationView()
+                ExerciseTypeCreationView(exerciseManager: exerciseManager)
             }
             .navigationTitle("Упражнения")
             .toolbar {
@@ -68,7 +81,7 @@ struct AddExerciseView: View {
     
     var addExerciseToTrainingButton: some View {
         Button("Add to training") {
-            viewModel.addSelectedExerciseTypes()
+            viewModel.addSelectedObjects()
             dismiss()
         }
     }

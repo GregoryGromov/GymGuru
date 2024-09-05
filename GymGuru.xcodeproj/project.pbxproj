@@ -13,9 +13,19 @@
 		5F1F9D8F2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F9D8E2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift */; };
 		5F3580872C5908ED001BA25D /* CoreDaraErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3580862C5908ED001BA25D /* CoreDaraErrors.swift */; };
 		5F35808B2C591184001BA25D /* FileManagerErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35808A2C591184001BA25D /* FileManagerErrors.swift */; };
+		5F7147972C885F8100E36590 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7147962C885F8100E36590 /* Program.swift */; };
+		5F7147992C8860FD00E36590 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7147982C8860FD00E36590 /* CoreDataService.swift */; };
+		5F71479B2C8862C500E36590 /* ProgramStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F71479A2C8862C500E36590 /* ProgramStorageService.swift */; };
+		5F71479F2C8866FE00E36590 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F71479E2C8866FE00E36590 /* Array+Extension.swift */; };
+		5F7147A32C886EA700E36590 /* ProgramListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7147A22C886EA700E36590 /* ProgramListViewModel.swift */; };
+		5F7147A52C88700E00E36590 /* ProgramListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7147A42C88700E00E36590 /* ProgramListView.swift */; };
+		5F7147A72C8880B100E36590 /* ProgramManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7147A62C8880B100E36590 /* ProgramManager.swift */; };
+		5F7147A92C88884200E36590 /* ExerciseAddable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7147A82C88884200E36590 /* ExerciseAddable.swift */; };
 		5F7BCE672C558BA7006B1E16 /* TrainingGeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE662C558BA7006B1E16 /* TrainingGeneralViewModel.swift */; };
 		5F7BCE6D2C558EC9006B1E16 /* AddExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE6C2C558EC9006B1E16 /* AddExerciseView.swift */; };
 		5F7BCE6F2C558F19006B1E16 /* AddExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7BCE6E2C558F19006B1E16 /* AddExerciseViewModel.swift */; };
+		5F846BB42C8A024900C3BCFE /* ProgramDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F846BB32C8A024900C3BCFE /* ProgramDetailView.swift */; };
+		5F846BB62C8A045300C3BCFE /* ProgramDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F846BB52C8A045300C3BCFE /* ProgramDetailViewModel.swift */; };
 		5F91D0492C566EBD005F7C89 /* ExerciseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91D0482C566EBD005F7C89 /* ExerciseDetailViewModel.swift */; };
 		5F91D04B2C567168005F7C89 /* ExerciseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F91D04A2C567168005F7C89 /* ExerciseDetailView.swift */; };
 		5F984BEE2C775306007A5C42 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F984BED2C775306007A5C42 /* Date+Extension.swift */; };
@@ -37,6 +47,8 @@
 		5FBDA16C2C873EBF00D636E3 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDA16B2C873EBF00D636E3 /* CoreDataTest.swift */; };
 		5FBDA1722C874B2E00D636E3 /* StatisticsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDA1712C874B2E00D636E3 /* StatisticsMenuView.swift */; };
 		5FBDA1742C874BED00D636E3 /* StatisticsMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDA1732C874BED00D636E3 /* StatisticsMenuViewModel.swift */; };
+		5FBDA17B2C875FEC00D636E3 /* ProgramModificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDA17A2C875FEC00D636E3 /* ProgramModificationView.swift */; };
+		5FBDA17D2C87606200D636E3 /* ProgramModificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDA17C2C87606200D636E3 /* ProgramModificationViewModel.swift */; };
 		5FC6426C2C789EC3009D77C1 /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6426B2C789EC3009D77C1 /* StopwatchViewModel.swift */; };
 		5FC6426E2C789ECE009D77C1 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6426D2C789ECE009D77C1 /* StopwatchView.swift */; };
 		5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDFFE02C5148EA00AA1119 /* Training.swift */; };
@@ -54,9 +66,19 @@
 		5F1F9D8E2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTypeCreationViewModel.swift; sourceTree = "<group>"; };
 		5F3580862C5908ED001BA25D /* CoreDaraErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDaraErrors.swift; sourceTree = "<group>"; };
 		5F35808A2C591184001BA25D /* FileManagerErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerErrors.swift; sourceTree = "<group>"; };
+		5F7147962C885F8100E36590 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		5F7147982C8860FD00E36590 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		5F71479A2C8862C500E36590 /* ProgramStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramStorageService.swift; sourceTree = "<group>"; };
+		5F71479E2C8866FE00E36590 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		5F7147A22C886EA700E36590 /* ProgramListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramListViewModel.swift; sourceTree = "<group>"; };
+		5F7147A42C88700E00E36590 /* ProgramListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramListView.swift; sourceTree = "<group>"; };
+		5F7147A62C8880B100E36590 /* ProgramManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramManager.swift; sourceTree = "<group>"; };
+		5F7147A82C88884200E36590 /* ExerciseAddable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAddable.swift; sourceTree = "<group>"; };
 		5F7BCE662C558BA7006B1E16 /* TrainingGeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingGeneralViewModel.swift; sourceTree = "<group>"; };
 		5F7BCE6C2C558EC9006B1E16 /* AddExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseView.swift; sourceTree = "<group>"; };
 		5F7BCE6E2C558F19006B1E16 /* AddExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModel.swift; sourceTree = "<group>"; };
+		5F846BB32C8A024900C3BCFE /* ProgramDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetailView.swift; sourceTree = "<group>"; };
+		5F846BB52C8A045300C3BCFE /* ProgramDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetailViewModel.swift; sourceTree = "<group>"; };
 		5F91D0482C566EBD005F7C89 /* ExerciseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewModel.swift; sourceTree = "<group>"; };
 		5F91D04A2C567168005F7C89 /* ExerciseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailView.swift; sourceTree = "<group>"; };
 		5F984BED2C775306007A5C42 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -79,6 +101,8 @@
 		5FBDA16B2C873EBF00D636E3 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		5FBDA1712C874B2E00D636E3 /* StatisticsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsMenuView.swift; sourceTree = "<group>"; };
 		5FBDA1732C874BED00D636E3 /* StatisticsMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsMenuViewModel.swift; sourceTree = "<group>"; };
+		5FBDA17A2C875FEC00D636E3 /* ProgramModificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramModificationView.swift; sourceTree = "<group>"; };
+		5FBDA17C2C87606200D636E3 /* ProgramModificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramModificationViewModel.swift; sourceTree = "<group>"; };
 		5FC6426B2C789EC3009D77C1 /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
 		5FC6426D2C789ECE009D77C1 /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
 		5FFDFFE02C5148EA00AA1119 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
@@ -143,6 +167,44 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5F71479C2C88630700E36590 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */,
+				5FFDFFE22C51499200AA1119 /* DataManager.swift */,
+				5FFDFFF02C51567300AA1119 /* TrainingManager.swift */,
+				5F9A9C3F2C58295700C8C413 /* ExerciseManager.swift */,
+				5F7147A62C8880B100E36590 /* ProgramManager.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		5F71479D2C88630D00E36590 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5F7147982C8860FD00E36590 /* CoreDataService.swift */,
+				5F9A9C4A2C58F37F00C8C413 /* TrainingStorageService.swift */,
+				5F71479A2C8862C500E36590 /* ProgramStorageService.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		5F7147A02C886E9200E36590 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F7147A42C88700E00E36590 /* ProgramListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F7147A12C886E9700E36590 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F7147A22C886EA700E36590 /* ProgramListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5F7BCE682C558E64006B1E16 /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +239,31 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5F846BB02C8A022000C3BCFE /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				5F846BB22C8A022700C3BCFE /* ViewModel */,
+				5F846BB12C8A022400C3BCFE /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		5F846BB12C8A022400C3BCFE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F846BB32C8A024900C3BCFE /* ProgramDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F846BB22C8A022700C3BCFE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F846BB52C8A045300C3BCFE /* ProgramDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5F91D0452C566E66005F7C89 /* ExerciseDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +294,7 @@
 			children = (
 				5F984BED2C775306007A5C42 /* Date+Extension.swift */,
 				5F984BEF2C775310007A5C42 /* Int+Extension.swift */,
+				5F71479E2C8866FE00E36590 /* Array+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +393,7 @@
 				5F9E261E2C511C7D008F0CD3 /* Exercise.swift */,
 				5FFDFFE02C5148EA00AA1119 /* Training.swift */,
 				5F9A9C412C5829FF00C8C413 /* ExerciseType.swift */,
+				5F7147962C885F8100E36590 /* Program.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,6 +411,7 @@
 		5F9E26192C511AA0008F0CD3 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				5F7147A82C88884200E36590 /* ExerciseAddable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -329,11 +419,8 @@
 		5F9E261A2C511AA6008F0CD3 /* Servicses */ = {
 			isa = PBXGroup;
 			children = (
-				5FFDFFE22C51499200AA1119 /* DataManager.swift */,
-				5FFDFFF02C51567300AA1119 /* TrainingManager.swift */,
-				5F9A9C3F2C58295700C8C413 /* ExerciseManager.swift */,
-				5F9A9C4A2C58F37F00C8C413 /* TrainingStorageService.swift */,
-				5FACD48B2C85E38E003C0F6F /* TrainingStateService.swift */,
+				5F71479D2C88630D00E36590 /* Storage */,
+				5F71479C2C88630700E36590 /* Cache */,
 			);
 			path = Servicses;
 			sourceTree = "<group>";
@@ -371,6 +458,50 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5FBDA1752C875EDE00D636E3 /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				5F846BB02C8A022000C3BCFE /* Detail */,
+				5FBDA1772C875EEF00D636E3 /* Modification */,
+				5FBDA1762C875EEA00D636E3 /* List */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
+		5FBDA1762C875EEA00D636E3 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				5F7147A12C886E9700E36590 /* ViewModel */,
+				5F7147A02C886E9200E36590 /* View */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		5FBDA1772C875EEF00D636E3 /* Modification */ = {
+			isa = PBXGroup;
+			children = (
+				5FBDA1792C875F8A00D636E3 /* ViewModel */,
+				5FBDA1782C875F8700D636E3 /* View */,
+			);
+			path = Modification;
+			sourceTree = "<group>";
+		};
+		5FBDA1782C875F8700D636E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5FBDA17A2C875FEC00D636E3 /* ProgramModificationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5FBDA1792C875F8A00D636E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5FBDA17C2C87606200D636E3 /* ProgramModificationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5FC6426A2C789EB2009D77C1 /* Stopwatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,13 +535,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		5FFDFFEB2C5153FE00AA1119 /* TrainingRouter */ = {
+		5FFDFFEB2C5153FE00AA1119 /* Router */ = {
 			isa = PBXGroup;
 			children = (
 				5FFDFFED2C51542500AA1119 /* ViewModel */,
 				5FFDFFEC2C51542100AA1119 /* View */,
 			);
-			path = TrainingRouter;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		5FFDFFEC2C51542100AA1119 /* View */ = {
@@ -443,7 +574,8 @@
 		5FFDFFF32C51590300AA1119 /* Training */ = {
 			isa = PBXGroup;
 			children = (
-				5FFDFFEB2C5153FE00AA1119 /* TrainingRouter */,
+				5FBDA1752C875EDE00D636E3 /* Program */,
+				5FFDFFEB2C5153FE00AA1119 /* Router */,
 				5FFDFFF22C5158B800AA1119 /* ProcessTraining */,
 			);
 			path = Training;
@@ -549,35 +681,47 @@
 				5F1F9D882C5A3E14004B5094 /* TestView.swift in Sources */,
 				5F1F9D852C5A36FE004B5094 /* ExerciseType+Extension.swift in Sources */,
 				5F91D04B2C567168005F7C89 /* ExerciseDetailView.swift in Sources */,
+				5FBDA17D2C87606200D636E3 /* ProgramModificationViewModel.swift in Sources */,
+				5F7147A52C88700E00E36590 /* ProgramListView.swift in Sources */,
 				5FFDFFE72C514C8900AA1119 /* TabBarView.swift in Sources */,
 				5F7BCE672C558BA7006B1E16 /* TrainingGeneralViewModel.swift in Sources */,
 				5F9A9C3B2C58150C00C8C413 /* UserDefaultsKeys.swift in Sources */,
 				5FFDFFE32C51499200AA1119 /* DataManager.swift in Sources */,
 				5F7BCE6D2C558EC9006B1E16 /* AddExerciseView.swift in Sources */,
+				5F7147992C8860FD00E36590 /* CoreDataService.swift in Sources */,
 				5F9A9C4B2C58F37F00C8C413 /* TrainingStorageService.swift in Sources */,
 				5FFDFFEF2C51545B00AA1119 /* TrainingRouterView.swift in Sources */,
 				5F9E261F2C511C7D008F0CD3 /* Exercise.swift in Sources */,
 				5F1F9D8F2C5A4221004B5094 /* ExerciseTypeCreationViewModel.swift in Sources */,
 				5F9A9C402C58295700C8C413 /* ExerciseManager.swift in Sources */,
+				5F71479B2C8862C500E36590 /* ProgramStorageService.swift in Sources */,
 				5FBDA1742C874BED00D636E3 /* StatisticsMenuViewModel.swift in Sources */,
 				5F91D0492C566EBD005F7C89 /* ExerciseDetailViewModel.swift in Sources */,
 				5FFDFFFC2C515B0600AA1119 /* TrainingGeneralView.swift in Sources */,
 				5F9E26032C5119AB008F0CD3 /* GymGuruApp.swift in Sources */,
 				5FBDA16C2C873EBF00D636E3 /* CoreDataTest.swift in Sources */,
+				5F7147A72C8880B100E36590 /* ProgramManager.swift in Sources */,
+				5F846BB42C8A024900C3BCFE /* ProgramDetailView.swift in Sources */,
 				5FACD48C2C85E38E003C0F6F /* TrainingStateService.swift in Sources */,
+				5F7147972C885F8100E36590 /* Program.swift in Sources */,
 				5F9A9C422C5829FF00C8C413 /* ExerciseType.swift in Sources */,
 				5F9A9C3E2C58261E00C8C413 /* DataStorageErrors.swift in Sources */,
 				5FC6426E2C789ECE009D77C1 /* StopwatchView.swift in Sources */,
+				5F7147A32C886EA700E36590 /* ProgramListViewModel.swift in Sources */,
 				5F9E261D2C511BE8008F0CD3 /* ESet.swift in Sources */,
 				5FC6426C2C789EC3009D77C1 /* StopwatchViewModel.swift in Sources */,
+				5FBDA17B2C875FEC00D636E3 /* ProgramModificationView.swift in Sources */,
 				5F984BF02C775310007A5C42 /* Int+Extension.swift in Sources */,
 				5F35808B2C591184001BA25D /* FileManagerErrors.swift in Sources */,
+				5F7147A92C88884200E36590 /* ExerciseAddable.swift in Sources */,
 				5F1F9D8D2C5A41E6004B5094 /* ExerciseTypeCreationView.swift in Sources */,
 				5F3580872C5908ED001BA25D /* CoreDaraErrors.swift in Sources */,
 				5F7BCE6F2C558F19006B1E16 /* AddExerciseViewModel.swift in Sources */,
 				5FFDFFE12C5148EA00AA1119 /* Training.swift in Sources */,
 				5F984BEE2C775306007A5C42 /* Date+Extension.swift in Sources */,
+				5F71479F2C8866FE00E36590 /* Array+Extension.swift in Sources */,
 				5F9A9C492C58F1A400C8C413 /* MainStorage.xcdatamodeld in Sources */,
+				5F846BB62C8A045300C3BCFE /* ProgramDetailViewModel.swift in Sources */,
 				5FFDFFF12C51567300AA1119 /* TrainingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

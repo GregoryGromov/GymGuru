@@ -4,18 +4,21 @@ struct ExerciseDetailView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: ExerciseDetailViewModel
     
-    init(trainingManager: TrainingManager, exercise: Exercise) {
+    let exerciseManager: ExerciseManager
+    
+    init(trainingManager: TrainingManager, exercise: Exercise, exerciseManager: ExerciseManager) {
         _viewModel = StateObject(wrappedValue:
             ExerciseDetailViewModel(
                 trainingManager: trainingManager,
                 exercise: exercise
             )
         )
+        self.exerciseManager = exerciseManager
     }
     
     var body: some View {
         VStack {
-            Text(ExerciseManager.shared.getExerciseType(byId: viewModel.exercise.typeId)) // КОСТЫЛЬ
+            Text(exerciseManager.getExerciseTypeName(byId: viewModel.exercise.typeId)) // КОСТЫЛЬ
                 .font(.title)
                 .bold()
             setsList

@@ -3,6 +3,8 @@ import Combine
 
 class TrainingGeneralViewModel: ObservableObject {
     
+    
+    
     let trainingManager: TrainingManager
     
     @Published var exercises = [Exercise]()

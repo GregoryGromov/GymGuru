@@ -1,20 +1,34 @@
 import Foundation
 
 class ExerciseManager {
+    @Published var exerciseTypes: [String: ExerciseType] = [:]
     
-    static let shared = ExerciseManager()
+    init() {
+        loadExerciseTypes()
+    }
+    
+    private func loadExerciseTypes() {
+        do {
+            let storedExerciseTypes = try getExerciseTypes()
+            self.exerciseTypes = storedExerciseTypes.reduce(into: [String: ExerciseType]()) { dict, exerciseType in
+                dict[exerciseType.id] = exerciseType
+            }
+        } catch {
+            print("DEBUG: Error loading [ExerciseType] in ExerciseManager: \(error.localizedDescription)")
+        }
+    }
         
 //    TODO: хранить в отдельном файле
     private let builtInExercises = [
         ExerciseType(
-            id: UUID().uuidString,
+            id: "ex1",
             name: "Жим лежа",
             muscleGroups: ["Грудь", "Плечи", "Трицепс"],
             isBodyWeight: false, 
             isSelected: false
         ),
         ExerciseType(
-            id: UUID().uuidString,
+            id: "ex2",
             name: "Тяга блока сидя",
             muscleGroups: ["Спина", "Плечи", "Бицепс"],
             isBodyWeight: false,
@@ -57,9 +71,21 @@ class ExerciseManager {
         }
     }
     
-    func addExercise(_ exerciseType: ExerciseType) throws {
+
+    
+    func add(exerciseType: ExerciseType) throws {
+        // Обновляем локальный кэш упражнений
+        self.exerciseTypes[exerciseType.id] = exerciseType
+        
+        // Обновляем список упражнений в хранилище
         var existingExerciseTypes = try loadExercises()
-        existingExerciseTypes.append(exerciseType)
+        
+        if !existingExerciseTypes.contains(where: { $0.id == exerciseType.id }) {
+            existingExerciseTypes.append(exerciseType)
+        } else {
+            fatalError("Exercise with the same ID already exists")
+        }
+        
         try saveExerciseTypes(existingExerciseTypes)
     }
     
@@ -96,16 +122,26 @@ class ExerciseManager {
     }
     
     
-    
-    // TODO: Это временное решение (так как оно непроизводительное)
-//    ПО идее нужно будет сделать этот класс не shared, а настоящим и хранить в нем все имеющиеся типы
-    func getExerciseType(byId id: String) -> String {
-        let allExerciseTypes = try! getExerciseTypes()        
-        for type in allExerciseTypes {
-            if type.id == id {
-                return type.name
+    func getExerciseTypes(byIDs IDs: [String]) -> [ExerciseType] {
+        var exerciseTypes = [ExerciseType]()
+        
+        for ID in IDs {
+            if let exerciseType = getExerciseType(byId: ID) {
+                exerciseTypes.append(exerciseType)
             }
         }
-        return "no name"
+        
+        return exerciseTypes
+    }
+    
+    
+    
+    private func getExerciseType(byId id: String) -> ExerciseType? {
+        return exerciseTypes[id]
+    }
+    
+    
+    func getExerciseTypeName(byId id: String) -> String {
+        return exerciseTypes[id]?.name ?? "no name"
     }
 }

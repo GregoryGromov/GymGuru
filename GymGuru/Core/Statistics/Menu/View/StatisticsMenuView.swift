@@ -10,9 +10,11 @@ import SwiftUI
 struct StatisticsMenuView: View {
     
     @StateObject var viewModel: StatisticsMenuViewModel
+    let exerciseManager: ExerciseManager
     
-    init(dataManager: DataManager) {
+    init(dataManager: DataManager, exerciseManager: ExerciseManager) {
         _viewModel = StateObject(wrappedValue: StatisticsMenuViewModel(dataManager: dataManager))
+        self.exerciseManager = exerciseManager
     }
     
     var body: some View {
@@ -24,7 +26,7 @@ struct StatisticsMenuView: View {
                         
                         ForEach(training.exercises) { exercise in
                             HStack {
-                                Text(ExerciseManager.shared.getExerciseType(byId: exercise.typeId))
+                                Text(exerciseManager.getExerciseTypeName(byId: exercise.typeId))
                                 Spacer()
                                 VStack {
                                     ForEach(exercise.sets) { eSet in

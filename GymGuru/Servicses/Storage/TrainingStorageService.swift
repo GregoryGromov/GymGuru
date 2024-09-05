@@ -1,26 +1,7 @@
 import Foundation
 import CoreData
 
-class TrainingStorageService {
-    
-    private var storageName = "MainStorage"
-    
-    let container: NSPersistentContainer
-    let context: NSManagedObjectContext
-    
-    
-    init() {
-        container = NSPersistentContainer(name: storageName)
-        container.loadPersistentStores { (description, error) in
-            if let error = error {
-                print("DEBUG: Error loading data from CoreData: \(error)")
-            } else {
-                print("DEBUG: Successfully loaded data from CoreData")
-            }
-        }
-        context = container.viewContext
-    }
-    
+final class TrainingStorageService: CoreDataService {
     //  MARK: - Adding
     
     func addTraining(_ training: Training) {
@@ -31,7 +12,6 @@ class TrainingStorageService {
             addSets(to: exerciseEntity, from: exercise.sets)
             trainingEntity.addToExercises(exerciseEntity)
         }
-        
         save()
     }
 
@@ -74,7 +54,6 @@ class TrainingStorageService {
         
         return setEntity
     }
-
     
     
     //  MARK: - Fetching
@@ -92,18 +71,6 @@ class TrainingStorageService {
         }
         
         return trainings
-    }
-    
-    private func fetch<T: NSManagedObject>(_ entityType: T.Type) -> [T]? {
-        let request = NSFetchRequest<T>(entityName: String(describing: entityType))
-        
-        do {
-            let fetchedEntities = try container.viewContext.fetch(request)
-            return fetchedEntities
-        } catch {
-            print("DEBUG: Error fetching data with type \(entityType) from CoreData: \(error)")
-            return nil
-        }
     }
     
     
@@ -146,19 +113,6 @@ class TrainingStorageService {
             print("DEBUG: Ошибка при удалении TrainingEntyty: \(error)")
         }
     }
-    
-    //  MARK: - Saving
-    
-    private func save() {
-        do {
-            try context.save()
-            print("DEBUG: Данные успешно сохранены в CoreData")
-        }
-        catch {
-            print("DEBUG: Ошибка сохранения данных в CoreData: \(error)")
-        }
-    }
-    
 
     
     //  MARK: - Converting from Entity to struct-object

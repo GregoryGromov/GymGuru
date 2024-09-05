@@ -1,23 +1,28 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @StateObject var dataManager = DataManager()
+    let dataManager = DataManager()
+    let exerciseManager = ExerciseManager()
     
     var body: some View {
         VStack {
-            
             TabView {
-                StatisticsMenuView(dataManager: dataManager)
-                    .tabItem {
-                        Image(systemName: "chart.line.uptrend.xyaxis")
-                    }
+                StatisticsMenuView(
+                    dataManager: dataManager,
+                    exerciseManager: exerciseManager
+                )
+                .tabItem {
+                    Image(systemName: "chart.line.uptrend.xyaxis")
+                }
                 
-                TrainingRouterView(dataManager: dataManager)
-                    .tabItem {
-                        Image(systemName: "figure.strengthtraining.traditional")
-                    }
+                TrainingRouterView(
+                    dataManager: dataManager,
+                    exerciseManager: exerciseManager
+                )
+                .tabItem {
+                    Image(systemName: "figure.strengthtraining.traditional")
+                }
             }
         }
-        
     }
 }

@@ -22,6 +22,6 @@ final class TrainingRouterViewModel: ObservableObject {
 
     func startTraining() {
         stateService.setTrainingIsInProgress()
-        trainingManager.startTraining()
+        //trainingManager.startTraining(mode: <#TrainingStartMode#>)
     }
 }

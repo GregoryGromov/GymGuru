@@ -1,7 +1,15 @@
 import Foundation
 
+enum AddingExeriseMode {
+    case exercise
+    case exerciseType
+}
+
 class AddExerciseViewModel: ObservableObject {
-    let trainingManager: TrainingManager
+    let addingMode: AddingExeriseMode
+    
+    let exerciseStoringManager: any ExerciseAddable
+    let exerciseManager: ExerciseManager
     
     @Published var exerciseTypes: [ExerciseType] = [] {
         didSet {
@@ -27,24 +35,34 @@ class AddExerciseViewModel: ObservableObject {
     
     @Published var showExerciseTypeCreationView = false
     
-    init(trainingManager: TrainingManager) {
-        self.trainingManager = trainingManager
-        do {
-            let exerciseTypes = try ExerciseManager.shared.getExerciseTypes()
-            self.exerciseTypes = exerciseTypes
+    init(
+        addingMode: AddingExeriseMode,
+        trainingManager: any ExerciseAddable,
+        exerciseManager: ExerciseManager
+    ) {
+        self.addingMode = addingMode
+            self.exerciseStoringManager = trainingManager
+            self.exerciseManager = exerciseManager
+            do {
+                let exerciseTypes = try exerciseManager.getExerciseTypes()
+                self.exerciseTypes = exerciseTypes
+            }
+            catch {
+                print("DEBUG: <AddExerciseViewModel init>: \(error)")
+                self.exerciseTypes = []
+            }
         }
-        catch {
-            print("DEBUG: <AddExerciseViewModel init>: \(error)")
-            self.exerciseTypes = []
-        }
-    }
     
     func addExercise(_ exercise: Exercise) {
-        trainingManager.addExercise(exercise)
+        exerciseStoringManager.addExercise(exercise)
+    }
+    
+    func addExerciseType(_ exerciseType: ExerciseType) {
+        exerciseStoringManager.addExerciseType(exerciseType)
     }
     
     func load() throws {
-        let exerciseTypes = try ExerciseManager.shared.getExerciseTypes()
+        let exerciseTypes = try exerciseManager.getExerciseTypes()
         self.exerciseTypes = exerciseTypes
     }
     
@@ -55,13 +73,31 @@ class AddExerciseViewModel: ObservableObject {
         }
     }
     
-    func addSelectedExerciseTypes() {
+    func addSelectedExercises() {
         let selectedExercises = exerciseTypes
                 .filter { $0.isSelected }
                 .map { convertExerciseTypeToExercise($0) }
         
         for exercise in selectedExercises {
-            addExercise(exercise)
+            addExercise(exercise) //!
+        }
+    }
+    
+    func addSelectedObjects() {
+        switch addingMode {
+        case .exercise:
+            addSelectedExercises()
+        case .exerciseType:
+            addSelectedExerciseTypes()
+        }
+    }
+    
+    func addSelectedExerciseTypes() {
+        let selectedExercisesTypes = exerciseTypes
+                .filter { $0.isSelected }
+                
+        for exerciseType in selectedExercisesTypes {
+            addExerciseType(exerciseType)
         }
     }
     

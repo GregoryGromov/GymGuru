@@ -2,6 +2,12 @@ import Foundation
 
 class ExerciseTypeCreationViewModel: ObservableObject {
     
+    let exerciseManager: ExerciseManager
+    
+    init(exerciseManager: ExerciseManager) {
+        self.exerciseManager = exerciseManager
+    }
+    
     @Published var name = ""
     @Published var isBodyWeight = false
     @Published var selectedMuscleGroups = [String]()
@@ -18,7 +24,7 @@ class ExerciseTypeCreationViewModel: ObservableObject {
             isBodyWeight: isBodyWeight,
             isSelected: false
         )
-        try ExerciseManager.shared.addExercise(newExerciseType)
+        try exerciseManager.add(exerciseType: newExerciseType)
     }
     
     
