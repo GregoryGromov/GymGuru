@@ -3,8 +3,6 @@ import Combine
 
 class TrainingGeneralViewModel: ObservableObject {
     
-    
-    
     let trainingManager: TrainingManager
     
     @Published var exercises = [Exercise]()
@@ -20,11 +18,25 @@ class TrainingGeneralViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(trainingManager: TrainingManager) {
+    init(
+        mode: TrainingStartMode,
+        program: Program? = nil,
+        dataManager: DataManager,
+        stateService: TrainingStateService,
+        exerciseManager: ExerciseManager
+    ) {
+        let trainingManager = TrainingManager(
+            mode: mode,
+            program: program,
+            dataManager: dataManager,
+            stateService: stateService, 
+            exerciseManager: exerciseManager
+        )
+        
         self.trainingManager = trainingManager
         print("Date().toInt", Date().toInt)
         print("trainingManager.creationDate", trainingManager.creationDate)
-        self.secondsElapsed = Date().toInt - trainingManager.creationDate!
+        self.secondsElapsed = Date().toInt - trainingManager.creationDate
         
         trainingManager.$exercises
             .map { $0.map { $1 } } // Преобразование значений словаря в массив

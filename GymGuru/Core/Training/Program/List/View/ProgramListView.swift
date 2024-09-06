@@ -4,12 +4,11 @@ struct ProgramListView: View {
     
     @StateObject var viewModel: ProgramListViewModel
     
-    init(stateService: TrainingStateService, trainingManager: TrainingManager, exerciseManager: ExerciseManager) {
+    init(stateService: TrainingStateService, exerciseManager: ExerciseManager) {
         _viewModel = StateObject(
             wrappedValue:
                 ProgramListViewModel(
                     stateService: stateService,
-                    trainingManager: trainingManager,
                     exerciseManager: exerciseManager
                 )
         )

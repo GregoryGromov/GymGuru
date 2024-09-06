@@ -9,23 +9,71 @@ final class TrainingManager: ObservableObject, ExerciseAddable {
     
     let dataManager: DataManager
     let stateService: TrainingStateService
+    let startMode: TrainingStartMode
     
     @Published var exercises: [String : Exercise]
     @Published var comment: String?
-    var creationDate: Int?
+    var creationDate: Int
     
-    init(dataManager: DataManager, stateService: TrainingStateService) {
+    init(
+        mode: TrainingStartMode,
+        program: Program? = nil,
+        dataManager: DataManager,
+        stateService: TrainingStateService,
+        exerciseManager: ExerciseManager
+    ) {
+        print("DEBUG: Началась инициализация TrainingManager")
+        
         self.dataManager = dataManager
         self.stateService = stateService
+        self.startMode = mode
         
-        if stateService.isTrainingInProgress() {
-            print("DEGUG: Тренировка в процессе")
+        if stateService.doesStartedTrainingExists() {
+            print("DEBUG: Тренировка в процессе")
             self.creationDate = TrainingManager.loadDate() ?? Date().toInt
             self.exercises = TrainingManager.safeLoadExercises()
+            
         } else {
-            self.exercises = [:]
+            print("DEBUG: Новая тренировка начата")
+            switch mode {
+            case .free:
+                print("DEBUG: Выбрана свободная тренировка")
+                self.exercises = [:]
+            case .withProgram:
+                print("DEBUG: Выбрана тренировка по программе")
+                if let program = program {
+                    print("DEBUG: Программа передана")
+                    let exerciseTypes = exerciseManager.getExerciseTypes(byIDs: program.exerciseTypeIDs)
+                    
+                    var exercises = [String : Exercise]()
+                    
+                    for exerciseType in exerciseTypes {
+                        let newExercise = Exercise(
+                            id: UUID().uuidString,
+                            date: Date().toInt,
+                            typeId: exerciseType.id,
+                            sets: []
+                        )
+                        
+                        exercises[newExercise.id] = newExercise
+                    }
+                    
+                    self.exercises = exercises
+                } else {
+                    print("DEBUG: Программа не передана")
+                    exercises = [:]
+                }
+                
+            }
+            
             self.comment = nil
+            self.creationDate = Date().toInt
+            
+            stateService.setTrainingIsInProgress()
+            stateService.setStartedTrainingExists()
         }
+        
+        save()
     }
     
 //  MARK: - Exercise modification
@@ -52,7 +100,7 @@ final class TrainingManager: ObservableObject, ExerciseAddable {
 //  MARK: - Data storage
     
     private func save() {
-        saveDate(creationDate!)
+        saveDate(creationDate)
         do {
             try saveExercises(exercises)
         } catch {
@@ -114,6 +162,8 @@ final class TrainingManager: ObservableObject, ExerciseAddable {
             print("DEGUG: Начата новая тренировка по программе")
         }
         
+        stateService.setStartedTrainingExists()
+        
         
     }
 
@@ -122,7 +172,7 @@ final class TrainingManager: ObservableObject, ExerciseAddable {
         
         let newTraining = Training(
             id: UUID().uuidString, // ПОДУМАТЬ НАД ЭТИМ
-            dateStart: creationDate!,
+            dateStart: creationDate,
             dateEnd: Date().toInt,
             exercises: exerciseArray,
             programId: "no id", // КОСТЫЛЬ
@@ -130,6 +180,8 @@ final class TrainingManager: ObservableObject, ExerciseAddable {
         )
         
         dataManager.addTraining(newTraining)
+        
+        stateService.setStartedTrainingNotExists()  // + Сделать удаление этой тренировки из UserDefaults
         stateService.setTrainingIsNotInProgress()
     }
 }

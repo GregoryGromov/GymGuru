@@ -18,5 +18,6 @@ class ProgramDetailViewModel: ObservableObject {
     
     func startTraining() {
         stateService.setTrainingIsInProgress()
+        stateService.selectProgram(program)
     }
 }

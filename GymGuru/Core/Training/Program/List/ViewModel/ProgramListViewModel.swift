@@ -4,7 +4,6 @@ import Combine
 class ProgramListViewModel: ObservableObject {
     let stateService: TrainingStateService
     let programManager: ProgramManager
-    let trainingManager: TrainingManager
     let exerciseManager: ExerciseManager
     
     
@@ -18,13 +17,11 @@ class ProgramListViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
 
-    init(stateService: TrainingStateService, trainingManager: TrainingManager, exerciseManager: ExerciseManager) {
+    init(stateService: TrainingStateService, exerciseManager: ExerciseManager) {
         self.stateService = stateService
-        self.trainingManager = trainingManager
         self.exerciseManager = exerciseManager
         
         self.programManager = ProgramManager(
-            trainingManager: trainingManager,
             exerciseManager: exerciseManager
         )
         

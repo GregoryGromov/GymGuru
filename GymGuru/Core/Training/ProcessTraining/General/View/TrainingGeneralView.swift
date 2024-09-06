@@ -6,8 +6,23 @@ struct TrainingGeneralView: View {
     
     let exerciseManager: ExerciseManager
     
-    init(trainingManager: TrainingManager, exerciseManager: ExerciseManager) {
-        _viewModel = StateObject(wrappedValue: TrainingGeneralViewModel(trainingManager: trainingManager))
+    init(
+        mode: TrainingStartMode,
+        program: Program? = nil,
+        dataManager: DataManager,
+        stateService: TrainingStateService,
+        exerciseManager: ExerciseManager
+    ) {
+        _viewModel = StateObject(
+            wrappedValue:
+                TrainingGeneralViewModel(
+                    mode: mode,
+                    program: program,
+                    dataManager: dataManager,
+                    stateService: stateService, 
+                    exerciseManager: exerciseManager
+                )
+            )
         self.exerciseManager = exerciseManager
     }
     

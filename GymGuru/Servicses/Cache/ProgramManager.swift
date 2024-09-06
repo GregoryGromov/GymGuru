@@ -3,12 +3,10 @@ import Foundation
 class ProgramManager: ObservableObject {
         
     let storageService = ProgramStorageService()
-    let trainingManager: TrainingManager
     
     @Published var programs: [Program] = []
     
-    init(trainingManager: TrainingManager, exerciseManager: ExerciseManager) {
-        self.trainingManager = trainingManager
+    init(exerciseManager: ExerciseManager) {
         loadPrograms()
     }
     

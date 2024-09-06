@@ -19,14 +19,16 @@ struct TrainingRouterView: View {
     var body: some View {
         if viewModel.trainingInProgress {
             TrainingGeneralView(
-                trainingManager: viewModel.trainingManager,
+                mode: viewModel.detectTrainingCreationMode(),
+                program: viewModel.getSelectedProgram(),
+                dataManager: viewModel.dataManager,
+                stateService: viewModel.stateService,
                 exerciseManager: exerciseManager
             )
         } else {
             VStack {
                 ProgramListView(
                     stateService: viewModel.stateService, 
-                    trainingManager: viewModel.trainingManager,
                     exerciseManager: exerciseManager
                 )
                 
