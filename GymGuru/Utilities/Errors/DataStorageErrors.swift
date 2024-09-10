@@ -5,19 +5,15 @@ enum DataStorageError: Error {
     case savingToFileFailed
     case readingFromFileFailed
 
-    case convertingDataFailed
-
     case invalidPath
     case pathCreationFailed
 
-    case invalidCSVFormat
-
-    case JSONSerializingFailed
-    
     case modelContextFailed
     
     case decodingFailed
     case encodingFailed
+    case convertingDataFailed
+    case JSONSerializingFailed
     
     case unknownError
 }

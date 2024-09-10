@@ -67,7 +67,7 @@ struct TrainingGeneralView: View {
     }
     
     private var finishTrainingButton: some View {
-        Button("Finish him") {
+        Button("Finish") {
             viewModel.finishTraining()
         }
     }
@@ -77,33 +77,12 @@ struct TrainingGeneralView: View {
             Text("\(viewModel.secondsElapsed) секунд")
                 .font(.largeTitle)
                 .padding()
-            
-            HStack {
-                Button(action: viewModel.startStopwatch) {
-                    Text("Старт")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(DefaultButtonStyle())
-
-                Button(action: viewModel.stopStopwatch) {
-                    Text("Стоп")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(DefaultButtonStyle())
-                
-                Button(action: viewModel.resetStopwatch) {
-                    Text("Сброс")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(DefaultButtonStyle())
-            }
-            .padding()
         }
     }
     
     private func exerciseCell(for exercise: Exercise) -> some View {
         HStack {
-            Text(exerciseManager.getExerciseTypeName(byId: exercise.typeId)) // КОСТЫЛЬ
+            Text(exerciseManager.getExerciseTypeName(byId: exercise.typeId))
             Spacer()
             VStack {
                 ForEach(exercise.sets) { set in

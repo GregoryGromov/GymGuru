@@ -2,10 +2,6 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        MainView()
-//        TestView()
         TabBarView()
-//        SimpleStopwatchView()
-//        CoreDataTest()
     }
 }

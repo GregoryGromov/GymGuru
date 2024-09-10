@@ -3,16 +3,19 @@ import CoreData
 
 final class TrainingStorageService: CoreDataService {
     //  MARK: - Adding
-    
+
     func addTraining(_ training: Training) {
         let trainingEntity = createTrainingEntity(from: training)
-        
-        for exercise in training.exercises {
+        addExercises(to: trainingEntity, from: training.exercises)
+        save()
+    }
+    
+    private func addExercises(to trainingEntity: TrainingEntity, from exercises: [Exercise]) {
+        for exercise in exercises {
             let exerciseEntity = createExerciseEntity(from: exercise)
             addSets(to: exerciseEntity, from: exercise.sets)
             trainingEntity.addToExercises(exerciseEntity)
         }
-        save()
     }
 
     private func createTrainingEntity(from training: Training) -> TrainingEntity {
@@ -62,7 +65,10 @@ final class TrainingStorageService: CoreDataService {
         guard let trainingEntities = fetch(TrainingEntity.self) else {
             throw CoreDaraErrors.fecthFailed
         }
-        
+        return try convertToTrainings(from: trainingEntities)
+    }
+
+    private func convertToTrainings(from trainingEntities: [TrainingEntity]) throws -> [Training] {
         var trainings = [Training]()
         
         for trainingEntity in trainingEntities {
@@ -79,7 +85,6 @@ final class TrainingStorageService: CoreDataService {
     func deleteTraining(byId id: String) {
         let fetchRequest: NSFetchRequest<TrainingEntity> = TrainingEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
-        
         do {
             let results = try context.fetch(fetchRequest)
             
@@ -90,16 +95,13 @@ final class TrainingStorageService: CoreDataService {
             } else {
                 print("DEBUG: No TrainingEntity found with id \(id)")
             }
-            
         } catch {
             print("DEBUG: Failed to delete TrainingEntity: \(error)")
         }
     }
 
-    
     func deleteAllTrainings() {
         let request = NSFetchRequest<TrainingEntity>(entityName: "TrainingEntity")
-        
         do {
             let fetchedTrainings = try context.fetch(request)
             
@@ -107,7 +109,6 @@ final class TrainingStorageService: CoreDataService {
                 context.delete(trainingEntity)
                 save()
             }
-            
             print("DEBUG: Всё успешно удалено)")
         } catch {
             print("DEBUG: Ошибка при удалении TrainingEntyty: \(error)")
@@ -142,8 +143,7 @@ final class TrainingStorageService: CoreDataService {
         return training
     }
     
-    
-    func convertExerciseEntitiesToExercises(
+    private func convertExerciseEntitiesToExercises(
         _ exerciseEntities: [ExerciseEntity]
     ) throws -> [Exercise] {
         var exercises = [Exercise]()
@@ -154,8 +154,7 @@ final class TrainingStorageService: CoreDataService {
         return exercises
     }
     
-    
-    func convertExerciseEntityToExercise(
+    private func convertExerciseEntityToExercise(
         _ exerciseEntity: ExerciseEntity
     ) throws -> Exercise {
         guard let exerciseId = exerciseEntity.id else {
@@ -184,7 +183,7 @@ final class TrainingStorageService: CoreDataService {
     }
     
     
-    func convertSetEntitiesToESets(
+    private func convertSetEntitiesToESets(
         _ setEntities: [SetEntity]
     ) throws -> [ESet] {
         var sets = [ESet]()

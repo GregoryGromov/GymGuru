@@ -7,6 +7,9 @@ class ExerciseManager {
         loadExerciseTypes()
     }
     
+    
+    //  MARK: - Loading
+    
     private func loadExerciseTypes() {
         do {
             let storedExerciseTypes = try getExerciseTypes()
@@ -17,28 +20,20 @@ class ExerciseManager {
             print("DEBUG: Error loading [ExerciseType] in ExerciseManager: \(error.localizedDescription)")
         }
     }
-        
-//    TODO: хранить в отдельном файле
-    private let builtInExercises = [
-        ExerciseType(
-            id: "ex1",
-            name: "Жим лежа",
-            muscleGroups: ["Грудь", "Плечи", "Трицепс"],
-            isBodyWeight: false, 
-            isSelected: false
-        ),
-        ExerciseType(
-            id: "ex2",
-            name: "Тяга блока сидя",
-            muscleGroups: ["Спина", "Плечи", "Бицепс"],
-            isBodyWeight: false,
-            isSelected: false
-        )
-    ]
+    
+    func loadExerciseTypesFromStorage() throws -> [ExerciseType] {
+        do {
+            let data = try Data(contentsOf: fileURL)
+            let exercises = try JSONDecoder().decode([ExerciseType].self, from: data)
+            return exercises
+        } catch {
+            throw error
+        }
+    }
     
     func getExerciseTypes() throws -> [ExerciseType] {
         let builtInExerciseTypes = ExerciseType.MOCK1
-        let customExerciseTypes = try loadExercises()
+        let customExerciseTypes = try loadExerciseTypesFromStorage()
         let allExercise = builtInExerciseTypes + customExerciseTypes
         
         return allExercise
@@ -52,33 +47,15 @@ class ExerciseManager {
         return documentsDirectory.appendingPathComponent("exercises.json")
     }
     
-    func saveExerciseTypes(_ exercises: [ExerciseType]) throws {
-        do {
-            let data = try JSONEncoder().encode(exercises)
-            try data.write(to: fileURL) 
-        } catch {
-            throw error
-        }
-    }
     
-    func loadExercises() throws -> [ExerciseType] {
-        do {
-            let data = try Data(contentsOf: fileURL) // Чтение данных из файла
-            let exercises = try JSONDecoder().decode([ExerciseType].self, from: data) //
-            return exercises
-        } catch {
-            throw error
-        }
-    }
-    
-
+    //  MARK: - Adding + Udpating
     
     func add(exerciseType: ExerciseType) throws {
         // Обновляем локальный кэш упражнений
         self.exerciseTypes[exerciseType.id] = exerciseType
         
         // Обновляем список упражнений в хранилище
-        var existingExerciseTypes = try loadExercises()
+        var existingExerciseTypes = try loadExerciseTypesFromStorage()
         
         if !existingExerciseTypes.contains(where: { $0.id == exerciseType.id }) {
             existingExerciseTypes.append(exerciseType)
@@ -90,13 +67,13 @@ class ExerciseManager {
     }
     
     func addExercises(_ exerciseTypes: [ExerciseType]) throws {
-        var existingExerciseTypes = try loadExercises()
+        var existingExerciseTypes = try loadExerciseTypesFromStorage()
         existingExerciseTypes.append(contentsOf: exerciseTypes)
         try saveExerciseTypes(existingExerciseTypes)
     }
     
     func updateExercise(_ exerciseType: ExerciseType) throws {
-        var existingExerciseTypes = try loadExercises()
+        var existingExerciseTypes = try loadExerciseTypesFromStorage()
         for index in existingExerciseTypes.indices {
             if existingExerciseTypes[index].id == exerciseType.id {
                 existingExerciseTypes[index] = exerciseType
@@ -106,8 +83,23 @@ class ExerciseManager {
         try saveExerciseTypes(existingExerciseTypes)
     }
     
+    
+    //  MARK: - Saving
+    
+    func saveExerciseTypes(_ exercises: [ExerciseType]) throws {
+        do {
+            let data = try JSONEncoder().encode(exercises)
+            try data.write(to: fileURL)
+        } catch {
+            throw error
+        }
+    }
+
+    
+    //  MARK: - Deleting
+    
     func deleteExerciseType(byId id: String) throws {
-        var existingExerciseTypes = try loadExercises()
+        var existingExerciseTypes = try loadExerciseTypesFromStorage()
         for index in existingExerciseTypes.indices {
             if existingExerciseTypes[index].id == id {
                 existingExerciseTypes.remove(at: index)
@@ -122,6 +114,8 @@ class ExerciseManager {
     }
     
     
+    //  MARK: - Naming
+    
     func getExerciseTypes(byIDs IDs: [String]) -> [ExerciseType] {
         var exerciseTypes = [ExerciseType]()
         
@@ -134,12 +128,9 @@ class ExerciseManager {
         return exerciseTypes
     }
     
-    
-    
     private func getExerciseType(byId id: String) -> ExerciseType? {
         return exerciseTypes[id]
     }
-    
     
     func getExerciseTypeName(byId id: String) -> String {
         return exerciseTypes[id]?.name ?? "no name"

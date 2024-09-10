@@ -11,14 +11,10 @@ enum CoreDaraErrors: Error {
     case programEntityHasNoId
     case programEntityHasNoName
     
-    
-    
     case exerciseTypeEntityHasNoId
     case exerciseTypeEntityHasNotAllRequiredProperties
     
     case muscleGroupsConvertingFailed
-    
-    case fecthFailed
-    
     case convertingFailed
+    case fecthFailed
 }

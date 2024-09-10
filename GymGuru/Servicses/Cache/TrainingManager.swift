@@ -6,7 +6,6 @@ enum TrainingStartMode {
 }
 
 final class TrainingManager: ObservableObject, ExerciseAddable {
-    
     let dataManager: DataManager
     let stateService: TrainingStateService
     let startMode: TrainingStartMode
@@ -22,31 +21,21 @@ final class TrainingManager: ObservableObject, ExerciseAddable {
         stateService: TrainingStateService,
         exerciseManager: ExerciseManager
     ) {
-        print("DEBUG: Началась инициализация TrainingManager")
-        
         self.dataManager = dataManager
         self.stateService = stateService
         self.startMode = mode
         
         if stateService.doesStartedTrainingExists() {
-            print("DEBUG: Тренировка в процессе")
             self.creationDate = TrainingManager.loadDate() ?? Date().toInt
             self.exercises = TrainingManager.safeLoadExercises()
-            
         } else {
-            print("DEBUG: Новая тренировка начата")
             switch mode {
             case .free:
-                print("DEBUG: Выбрана свободная тренировка")
                 self.exercises = [:]
             case .withProgram:
-                print("DEBUG: Выбрана тренировка по программе")
                 if let program = program {
-                    print("DEBUG: Программа передана")
                     let exerciseTypes = exerciseManager.getExerciseTypes(byIDs: program.exerciseTypeIDs)
-                    
                     var exercises = [String : Exercise]()
-                    
                     for exerciseType in exerciseTypes {
                         let newExercise = Exercise(
                             id: UUID().uuidString,
@@ -54,16 +43,12 @@ final class TrainingManager: ObservableObject, ExerciseAddable {
                             typeId: exerciseType.id,
                             sets: []
                         )
-                        
                         exercises[newExercise.id] = newExercise
                     }
-                    
                     self.exercises = exercises
                 } else {
-                    print("DEBUG: Программа не передана")
                     exercises = [:]
                 }
-                
             }
             
             self.comment = nil
@@ -85,7 +70,6 @@ final class TrainingManager: ObservableObject, ExerciseAddable {
     
     //КОСТЫЛЬ
     func addExerciseType(_ exerciseType: ExerciseType) {}
-    
     
     func updateExercise(_ exercise: Exercise) {
         exercises[exercise.id] = exercise
@@ -147,35 +131,16 @@ final class TrainingManager: ObservableObject, ExerciseAddable {
     }
 
 //  MARK: -  State management
-    
-    func startTraining(mode: TrainingStartMode, program: Program? = nil) {
-        switch mode {
-        case .free:
-            self.creationDate = Date().toInt
-            print("DEGUG: Начата новая свободная тренировка")
-        case .withProgram:
-            guard let program = program else {
-                print("DEBUG: Нет программы!")
-                return
-            }
-            
-            print("DEGUG: Начата новая тренировка по программе")
-        }
-        
-        stateService.setStartedTrainingExists()
-        
-        
-    }
 
     func finishTraining() {
         let exerciseArray = Array(exercises.values)
         
         let newTraining = Training(
-            id: UUID().uuidString, // ПОДУМАТЬ НАД ЭТИМ
+            id: UUID().uuidString, // TODO!
             dateStart: creationDate,
             dateEnd: Date().toInt,
             exercises: exerciseArray,
-            programId: "no id", // КОСТЫЛЬ
+            programId: "no id", // TODO!
             comment: comment
         )
         

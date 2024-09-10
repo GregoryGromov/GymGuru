@@ -1,7 +1,6 @@
 import Foundation
 
-final class DataManager: ObservableObject {
-    
+final class DataManager: ObservableObject, TrainingManageable {
     let storageService = TrainingStorageService()
     
     @Published var trainings: [String: Training] = [:]
@@ -21,8 +20,8 @@ final class DataManager: ObservableObject {
     }
     
     func addTraining(_ training: Training) {
-        storageService.addTraining(training) // Добавляем в хранилище
-        trainings[training.id] = training  // Добавляем "локально"
+        storageService.addTraining(training)
+        trainings[training.id] = training
     }
     
     func deleteTraining(withId id: String) {

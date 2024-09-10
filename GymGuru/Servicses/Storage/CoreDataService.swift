@@ -2,12 +2,10 @@ import Foundation
 import CoreData
 
 class CoreDataService {
-    
     private var storageName = "MainStorage"
     
     let container: NSPersistentContainer
     let context: NSManagedObjectContext
-    
     
     init() {
         container = NSPersistentContainer(name: storageName)
@@ -20,7 +18,6 @@ class CoreDataService {
         }
         context = container.viewContext
     }
-    
     
     func fetch<T: NSManagedObject>(_ entityType: T.Type) -> [T]? {
         let request = NSFetchRequest<T>(entityName: String(describing: entityType))
@@ -44,4 +41,3 @@ class CoreDataService {
         }
     }
 }
-

@@ -6,7 +6,7 @@ class ProgramStorageService: CoreDataService {
     //  MARK: - Adding
     
     func addProgram(_ program: Program) {
-        let programEntity = createProgramEntity(from: program)
+        createProgramEntity(from: program)
         save()
     }
     
@@ -21,7 +21,6 @@ class ProgramStorageService: CoreDataService {
         
         if let encodedExerciseTypeIDs = program.exerciseTypeIDs.toNSData() {
             programEntity.exerciseTypeIDs = encodedExerciseTypeIDs
-            print("DEBUG: В программе успешно сохранены ID типов упражнений")
         }
         
         return programEntity
@@ -88,7 +87,6 @@ class ProgramStorageService: CoreDataService {
             } else {
                 print("DEBUG: No ProgramEntity found with id \(id)")
             }
-            
         } catch {
             print("DEBUG: Failed to delete ProgramEntity: \(error)")
         }

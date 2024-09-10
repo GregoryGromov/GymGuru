@@ -1,7 +1,6 @@
 import Foundation
 
 class ProgramManager: ObservableObject {
-        
     let storageService = ProgramStorageService()
     
     @Published var programs: [Program] = []
@@ -29,14 +28,9 @@ class ProgramManager: ObservableObject {
         for index in programs.indices {
             if programs[index].id == id {
                 programs.remove(at: index)
-                print("DEBUG: Объект с id = \(id) найден и удален")
                 return
             }
         }
-        
-        print("DEBUG: Объект с id = \(id) не найден!")
-
-        
     }
     
     func updateProgram(with program: Program) {
