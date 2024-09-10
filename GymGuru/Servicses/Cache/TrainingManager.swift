@@ -5,7 +5,7 @@ enum TrainingStartMode {
     case withProgram
 }
 
-final class TrainingManager: ObservableObject, ExerciseAddable {
+final class TrainingManager: ObservableObject, ExerciseAddable, ExerciseModificatable {
     let dataManager: DataManager
     let stateService: TrainingStateService
     let startMode: TrainingStartMode

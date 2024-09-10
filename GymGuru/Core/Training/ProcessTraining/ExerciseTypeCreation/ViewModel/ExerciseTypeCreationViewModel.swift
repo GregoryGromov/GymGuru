@@ -1,6 +1,6 @@
 import Foundation
 
-class ExerciseTypeCreationViewModel: ObservableObject {
+final class ExerciseTypeCreationViewModel: ObservableObject {
     
     let exerciseManager: ExerciseManager
     

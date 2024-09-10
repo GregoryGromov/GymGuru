@@ -5,7 +5,7 @@ enum AddingExeriseMode {
     case exerciseType
 }
 
-class AddExerciseViewModel: ObservableObject {
+final class AddExerciseViewModel: ObservableObject {
     let addingMode: AddingExeriseMode
     
     let exerciseStoringManager: any ExerciseAddable

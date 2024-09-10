@@ -1,7 +1,6 @@
 import SwiftUI
 
-struct AddExerciseView/*<T: ExerciseAddable>*/: View {
-    
+struct AddExerciseView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: AddExerciseViewModel
     
@@ -22,14 +21,11 @@ struct AddExerciseView/*<T: ExerciseAddable>*/: View {
         self.exerciseManager = exerciseManager
     }
     
-    
     var body: some View {
         NavigationStack {
             VStack {
                 exerciseTypesList
-                
                 addExerciseToTrainingButton
-                
                 exerciseTypeCreationButton
             }
             .sheet(isPresented: $viewModel.showExerciseTypeCreationView) {
@@ -51,7 +47,7 @@ struct AddExerciseView/*<T: ExerciseAddable>*/: View {
     }
     
     
-    var exerciseTypesList: some View {
+    private var exerciseTypesList: some View {
         List {
             ForEach(viewModel.filteredExerciseTypes) { type in
                 HStack {
@@ -72,18 +68,16 @@ struct AddExerciseView/*<T: ExerciseAddable>*/: View {
         .searchable(text: $viewModel.searchQuery, prompt: "Искать упражнение")
     }
     
-    var exerciseTypeCreationButton: some View {
+    private var exerciseTypeCreationButton: some View {
         Button("Создать новое упражнение") {
             viewModel.showExerciseTypeCreationView.toggle()
         }
     }
     
-    
-    var addExerciseToTrainingButton: some View {
+    private var addExerciseToTrainingButton: some View {
         Button("Add to training") {
             viewModel.addSelectedObjects()
             dismiss()
         }
     }
 }
-

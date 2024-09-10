@@ -1,6 +1,6 @@
 import Foundation
 
-class ExerciseManager {
+final class ExerciseManager {
     @Published var exerciseTypes: [String: ExerciseType] = [:]
     
     init() {

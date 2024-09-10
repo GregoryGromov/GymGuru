@@ -1,7 +1,7 @@
 import Foundation
 
-class ExerciseDetailViewModel: ObservableObject {
-    let trainingManager: TrainingManager
+final class ExerciseDetailViewModel: ObservableObject {
+    let trainingManager: ExerciseModificatable
     
     @Published var exercise: Exercise
     
@@ -9,7 +9,7 @@ class ExerciseDetailViewModel: ObservableObject {
     @Published var reps = ""
     @Published var selectedSetId: String?
     
-    init(trainingManager: TrainingManager, exercise: Exercise) {
+    init(trainingManager: ExerciseModificatable, exercise: Exercise) {
         self.trainingManager = trainingManager
         self.exercise = exercise
     }

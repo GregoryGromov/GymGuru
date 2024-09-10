@@ -5,7 +5,7 @@ enum ModificationMode {
     case editing
 }
 
-class ProgramModificationViewModel: ObservableObject, ExerciseAddable {
+final class ProgramModificationViewModel: ObservableObject, ExerciseAddable {
     let programManager: ProgramManager
     let exerciseManager: ExerciseManager
     
@@ -66,7 +66,6 @@ class ProgramModificationViewModel: ObservableObject, ExerciseAddable {
     //КОСТЫЛЬ
     func addExercise(_ exercise: Exercise) {}
     
-    
     func addProgram() {
         let program = createProgram()
         programManager.addProgram(program)
@@ -100,6 +99,14 @@ class ProgramModificationViewModel: ObservableObject, ExerciseAddable {
     func updateProgram() {
         let program = createProgram()  //  TODO: не Create, а скорее "собери"
         programManager.updateProgram(with: program)
+    }
+    
+    func getNavigationTitle() -> String {
+        if modificationMode == .creation {
+            return "Создание программы"
+        } else {
+            return "Редактирование программы"
+        }
     }
 }
 

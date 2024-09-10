@@ -6,7 +6,7 @@ struct ExerciseDetailView: View {
     
     let exerciseManager: ExerciseManager
     
-    init(trainingManager: TrainingManager, exercise: Exercise, exerciseManager: ExerciseManager) {
+    init(trainingManager: ExerciseModificatable, exercise: Exercise, exerciseManager: ExerciseManager) {
         _viewModel = StateObject(wrappedValue:
             ExerciseDetailViewModel(
                 trainingManager: trainingManager,
@@ -18,15 +18,18 @@ struct ExerciseDetailView: View {
     
     var body: some View {
         VStack {
-            Text(exerciseManager.getExerciseTypeName(byId: viewModel.exercise.typeId)) // КОСТЫЛЬ
-                .font(.title)
-                .bold()
+            exerciseInfo
             setsList
-            
             setAdding
             addButton
             saveButton
         }
+    }
+    
+    private var exerciseInfo: some View {
+        Text(exerciseManager.getExerciseTypeName(byId: viewModel.exercise.typeId))
+            .font(.title)
+            .bold()
     }
     
     private var setAdding: some View {

@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct TrainingGeneralView: View {
-    
     @StateObject var viewModel: TrainingGeneralViewModel
     
     let exerciseManager: ExerciseManager

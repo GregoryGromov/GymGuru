@@ -1,6 +1,6 @@
 import Foundation
 
-class StatisticsService: ObservableObject {
+final class StatisticsService: ObservableObject {
     let dataManager: TrainingManageable
     
     init(dataManager: TrainingManageable) {

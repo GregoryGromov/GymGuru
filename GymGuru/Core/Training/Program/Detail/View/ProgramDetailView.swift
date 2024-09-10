@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct ProgramDetailView: View {
-    
     @Environment(\.dismiss) var dismiss
-    
     @StateObject var viewModel: ProgramDetailViewModel
     
     init(
@@ -21,39 +19,51 @@ struct ProgramDetailView: View {
         )
     }
     
-    
-
-    
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    Text(viewModel.program.name)
-                }
-                
-                Section {
-                    ForEach(viewModel.program.exerciseTypeIDs, id: \.self) { exerciseTypeID in
-                        HStack {
-                            Text(viewModel.exerciseManager.getExerciseTypeName(byId: exerciseTypeID)) //!
-                            Spacer()
-                            Image(systemName: "checkmark.circle")
-                        }
-                    }
-                }
-                
-                Section {
-                    Button("Начать тренировку") {
-                        viewModel.startTraining()
-                        dismiss()
-                    }
-                }
+                infoSection
+                exerciseTypesSection
+                startTrainingButton
             }
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Закрыть") {
-                        dismiss()
-                    }
+                closeToolBarItem
+            }
+        }
+    }
+    
+    
+    private var infoSection: some View {
+        Section {
+            Text(viewModel.program.name)
+        }
+    }
+    
+    private var exerciseTypesSection: some View {
+        Section {
+            ForEach(viewModel.program.exerciseTypeIDs, id: \.self) { exerciseTypeID in
+                HStack {
+                    Text(viewModel.exerciseManager.getExerciseTypeName(byId: exerciseTypeID)) //!
+                    Spacer()
+                    Image(systemName: "checkmark.circle")
                 }
+            }
+        }
+    }
+    
+    private var startTrainingButton: some View {
+        Section {
+            Button("Начать тренировку") {
+                viewModel.startTraining()
+                dismiss()
+            }
+        }
+    }
+    
+    private var closeToolBarItem: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            Button("Закрыть") {
+                dismiss()
             }
         }
     }

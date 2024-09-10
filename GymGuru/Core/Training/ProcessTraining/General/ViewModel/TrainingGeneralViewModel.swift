@@ -1,18 +1,17 @@
 import Foundation
 import Combine
 
-class TrainingGeneralViewModel: ObservableObject {
-    
+final class TrainingGeneralViewModel: ObservableObject {
     let trainingManager: TrainingManager
     
     @Published var exercises = [Exercise]()
+    @Published var selectedExercise: Exercise? = nil
 
     @Published var showAddExerciseView = false
     @Published var showExerciseDetailView = false
     
-    @Published var selectedExercise: Exercise? = nil
-    
     @Published var secondsElapsed: Int = 0
+    
     private var timer: Timer?
     private var isRunning = false
     
@@ -34,8 +33,6 @@ class TrainingGeneralViewModel: ObservableObject {
         )
         
         self.trainingManager = trainingManager
-        print("Date().toInt", Date().toInt)
-        print("trainingManager.creationDate", trainingManager.creationDate)
         self.secondsElapsed = Date().toInt - trainingManager.creationDate
         
         trainingManager.$exercises
@@ -79,6 +76,4 @@ class TrainingGeneralViewModel: ObservableObject {
         stopStopwatch()
         secondsElapsed = 0
     }
-    
-    
 }

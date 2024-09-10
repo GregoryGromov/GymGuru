@@ -37,7 +37,6 @@ struct TrainingRouterView: View {
                 }
                 .backgroundStyle(.blue)
             }
-            
         }
     }
 }

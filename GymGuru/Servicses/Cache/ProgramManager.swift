@@ -1,6 +1,6 @@
 import Foundation
 
-class ProgramManager: ObservableObject {
+final class ProgramManager: ObservableObject {
     let storageService = ProgramStorageService()
     
     @Published var programs: [Program] = []

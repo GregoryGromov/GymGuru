@@ -12,16 +12,14 @@ struct ExerciseTypeCreationView: View {
         VStack {
             List {
                 mainInfoSection
-                
                 saveButtonSection
-                
                 muscleGroupSelectionSection
             }
         }
     }
     
     
-    var mainInfoSection: some View {
+    private var mainInfoSection: some View {
         Section("Общие данные") {
             TextField("Введите название", text: $viewModel.name)
             Toggle(isOn: $viewModel.isBodyWeight) {
@@ -31,7 +29,7 @@ struct ExerciseTypeCreationView: View {
     }
     
     
-    var muscleGroupSelectionSection: some View {
+    private var muscleGroupSelectionSection: some View {
         Section("Выберите группы мышц") {
             ForEach(viewModel.muscleGroups, id: \.self) { muscleGroup in
                 HStack {
@@ -49,8 +47,7 @@ struct ExerciseTypeCreationView: View {
         }
     }
     
-    
-    var saveButtonSection: some View {
+    private var saveButtonSection: some View {
         Section {
             Button("Сохранить упражнение") {
                 do {

@@ -1,11 +1,10 @@
 import Foundation
 import Combine
 
-class ProgramListViewModel: ObservableObject {
+final class ProgramListViewModel: ObservableObject {
     let stateService: TrainingStateService
     let programManager: ProgramManager
     let exerciseManager: ExerciseManager
-    
     
     @Published var programs: [Program] = []
     
@@ -50,22 +49,4 @@ class ProgramListViewModel: ObservableObject {
         selectedProgram = program
         programDetailViewIsShown = false
     }
-    
-    
-    
-    
-    
-    let testProgram1 = Program(
-        id: "dqwdw",
-        name: "Утренняя тренировочка",
-        exerciseTypeIDs: ["ex1", "ex2"],
-        dateCreation: 123456789
-    )
-    
-    let testProgram2 = Program(
-        id: "dqwddedw",
-        name: "Ночная тренировочка",
-        exerciseTypeIDs: ["ex1"],
-        dateCreation: 12345632789
-    )
 }

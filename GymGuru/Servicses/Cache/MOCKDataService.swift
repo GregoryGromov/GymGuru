@@ -1,6 +1,6 @@
 import Foundation
 
-class MOCKDataService: TrainingManageable {
+final class MOCKDataService: TrainingManageable {
     
     static let setsPool = [
         ESet(id: UUID().uuidString, weight: 0.0, reps: 8),

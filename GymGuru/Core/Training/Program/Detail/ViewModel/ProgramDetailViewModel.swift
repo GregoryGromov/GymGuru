@@ -1,6 +1,6 @@
 import Foundation
 
-class ProgramDetailViewModel: ObservableObject {
+final class ProgramDetailViewModel: ObservableObject {
     let program: Program
     let stateService: TrainingStateService
     let exerciseManager: ExerciseManager

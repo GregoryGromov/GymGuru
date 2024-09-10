@@ -24,61 +24,12 @@ struct ProgramModificationView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    Text(viewModel.id)
-                        .foregroundStyle(.purple)
-                }
-                
-                Section {
-                    TextField("Название тренировки", text: $viewModel.name)
-                    Button("Добавить упражнение") {
-                        viewModel.showAddExerciseView()
-                    }
-                }
-                
-                Section {
-                    ForEach(viewModel.exerciseTypes) { exerciseType in
-                        HStack {
-                            Text(exerciseType.name).bold()
-                            Spacer()
-                            VStack {
-                                ForEach(exerciseType.muscleGroups, id: \.self) { muscleGroup in
-                                    Text(muscleGroup)
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                Section {
-                    switch viewModel.modificationMode {
-                    case .creation:
-                        Button("Создать") {
-                            viewModel.addProgram()
-                            dismiss()
-                        }
-                    case .editing:
-                        Button("Сохранить изменения") {
-                            viewModel.updateProgram()
-                            dismiss()
-                        }
-                    }
-                }
-                
-                Section {
-                    Button(role: .destructive) {
-                        viewModel.deleteProgram()
-                        dismiss()
-                    } label: {
-                        Text("Удалить")
-                    }
-
-                }
+                headerSection
+                exerciseTypesSection
+                actionButtonsSection
+                deletingSection
             }
-            .navigationTitle( viewModel.modificationMode == .creation
-                              ? "Создание программы"
-                              : "Редактирование программы"
-            )
+            .navigationTitle( viewModel.getNavigationTitle())
             .sheet(isPresented: $viewModel.addExerciseViewIsShown) {
                 AddExerciseView(
                     addingMode: .exerciseType,
@@ -87,7 +38,59 @@ struct ProgramModificationView: View {
                 )
             }
         }
-        
+    }
+    
+    private var headerSection: some View {
+        Section {
+            TextField("Название тренировки", text: $viewModel.name)
+            Button("Добавить упражнение") {
+                viewModel.showAddExerciseView()
+            }
+        }
+    }
+    
+    private var exerciseTypesSection: some View {
+        Section {
+            ForEach(viewModel.exerciseTypes) { exerciseType in
+                HStack {
+                    Text(exerciseType.name).bold()
+                    Spacer()
+                    VStack {
+                        ForEach(exerciseType.muscleGroups, id: \.self) { muscleGroup in
+                            Text(muscleGroup)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private var actionButtonsSection: some View {
+        Section {
+            switch viewModel.modificationMode {
+            case .creation:
+                Button("Создать") {
+                    viewModel.addProgram()
+                    dismiss()
+                }
+            case .editing:
+                Button("Сохранить изменения") {
+                    viewModel.updateProgram()
+                    dismiss()
+                }
+            }
+        }
+    }
+    
+    private var deletingSection: some View {
+        Section {
+            Button(role: .destructive) {
+                viewModel.deleteProgram()
+                dismiss()
+            } label: {
+                Text("Удалить")
+            }
+        }
     }
 }
 

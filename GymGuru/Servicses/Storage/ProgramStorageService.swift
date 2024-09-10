@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class ProgramStorageService: CoreDataService {
+final class ProgramStorageService: CoreDataService {
     
     //  MARK: - Adding
     

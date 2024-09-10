@@ -7,7 +7,6 @@ final class TrainingRouterViewModel: ObservableObject {
     let dataManager: DataManager
     
     @Published var trainingInProgress: Bool
-//    let trainingManager: TrainingManager
     
     private var cancellables = Set<AnyCancellable>()
 
@@ -23,7 +22,6 @@ final class TrainingRouterViewModel: ObservableObject {
 
     func startTraining() {
         stateService.setTrainingIsInProgress()
-        //trainingManager.startTraining(mode: <#TrainingStartMode#>)
     }
     
     func detectTrainingCreationMode() -> TrainingStartMode {
